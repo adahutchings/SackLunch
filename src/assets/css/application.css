@@ -1,4 +1,25 @@
 
 main {
+
     background-color:#fdbec0;
+
+}
+
+main.container {
+    margin-left: 250px;
+    width: auto;
+    
+}
+
+.wrapper {
+    display: flex;
+    align-items: stretch;
+}
+
+#sidebar {
+    position: fixed;
+    min-width: 250px;
+    max-width: 250px;
+    height: 100%;
+    background-color: rgb(190, 190, 190);
 }
