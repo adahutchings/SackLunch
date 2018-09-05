@@ -1,0 +1,19 @@
+{
+  "name": "sacklunch",
+  "version": "1.0.0",
+  "description": "An app for parents to order Sack Lunch for their child(ren)",
+  "main": "src/server.js",
+  "scripts": {
+    "test": "export NODE_ENV=test && jasmine"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/adahutchings/SackLunch.git"
+  },
+  "author": "Ada Hutchings",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/adahutchings/SackLunch/issues"
+  },
+  "homepage": "https://github.com/adahutchings/SackLunch#readme"
+}
