@@ -1,5 +1,8 @@
 const User = require("./models").User;
 const bcrypt = require("bcryptjs");
+const sgMail = require('@sendgrid/mail');
+
+sgMail.setApiKey(process.env.SENDGRID_API_KEY);
 
 module.exports = {
 
@@ -19,11 +22,20 @@ module.exports = {
             billingZipCode: newUser.billingZipCode
         })
         .then((user) => {
-            console.log("TEST ----- " + user);
+
+            const msg = {
+                to: newUser.email,
+                from: 'donotreply@sacklunch.com',
+                subject: 'Welcome to SackLunch',
+                text: 'Thank you for joining SackLunch. To start ordering lunches please sign in to your account and create a child profile. -The SackLunch Team',
+                html: 'Thank you for joining SackLunch. To start ordering lunches please sign in to your account and create a child profile.<br><br> -The SackLunch Team',
+            };
+
+            sgMail.send(msg);
+
             callback(null, user);
         })
         .catch((err) => {
-            console.log("TEST ERR ----- " + user);
             callback(err);
         })
     }
