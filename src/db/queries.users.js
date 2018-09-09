@@ -19,9 +19,11 @@ module.exports = {
             billingZipCode: newUser.billingZipCode
         })
         .then((user) => {
+            console.log("TEST ----- " + user);
             callback(null, user);
         })
         .catch((err) => {
+            console.log("TEST ERR ----- " + user);
             callback(err);
         })
     }

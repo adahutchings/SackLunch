@@ -9,10 +9,15 @@
     <% include ./partials/sideBar.ejs %>
 
     <main class="container">
+
+        <% include ../static/partials/messages.ejs %>
+
         <p>Welcome to SackLunch, a place for parents on the go to order exciting, delicious, and afforable sack lunch for daily delivery at your child's school. Signing up is easy and you can start having lunches delivered tomorrow!</p>
 
         <a href="/users/sign_up" class="btn btn-primary btn-lg">Sign Up</a>
     </main>
+
+    <% include ./partials/baseScripts.ejs %>
 
   </body>
 </html>
