@@ -11,7 +11,14 @@ module.exports = {
         let newUser = {
             email: req.body.email,
             password: req.body.password,
-            passwordConfirmation: req.body.passwordConfirmation
+            passwordConfirmation: req.body.passwordConfirmation,
+            firstName: req.body.firstName,
+            lastName: req.body.lastName,
+            phone: req.body.phone,
+            billingAddress: req.body.billingAddress,
+            billingCity: req.body.billingCity,
+            billingState: req.body.billingState,
+            billingZipCode: req.body.billingZipCode
         };
 
         userQueries.createUser(newUser, (err, user) => {
@@ -26,5 +33,5 @@ module.exports = {
             }
         });
     },
-    
+
 }
