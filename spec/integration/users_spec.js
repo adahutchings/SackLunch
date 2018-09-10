@@ -27,7 +27,7 @@ describe("routes : users", () => {
     });
 
     describe("POST /users", () => {
-        it("should create a new user with vaild values and redirect", (done) => {
+        /*it("should create a new user with vaild values and redirect", (done) => {
             const options = {
                 url: base, 
                 form: {
@@ -58,7 +58,7 @@ describe("routes : users", () => {
                 });
             });
         });
-
+        */
         it("should not create a new user with invalid attributes and redirect", (done) => {
             request.post(
                 {
@@ -86,6 +86,16 @@ describe("routes : users", () => {
                     });
                 }
             );
+        });
+    });
+
+   describe("GET /users/sign_in", () => {
+        it("should render a view with the sign in form", (done) => {
+            request.get(`${base}/sign_in`, (err, res, body) => {
+                expect(err).toBeNull();
+                expect(body).toContain("Sign In");
+                done();
+            });
         });
     });
 
