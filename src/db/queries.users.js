@@ -13,6 +13,7 @@ module.exports = {
         return User.create({
             email: newUser.email,
             password: hashedPassword,
+            passwordConfirmation: hashedPassword,
             firstName: newUser.firstName,
             lastName: newUser.lastName,
             phone: newUser.phone,

@@ -32,9 +32,10 @@ describe("routes : users", () => {
                 url: base, 
                 form: {
                     email: "user@example.com",
+                    password: "12345",
+                    passwordConfirmation: "12345",
                     firstName: "User",
                     lastName: "Example",
-                    password: "12345",
                     phone: "666-666-6666",
                     billingAddress: "123 lane way",
                     billingCity: "portland",
@@ -99,5 +100,14 @@ describe("routes : users", () => {
         });
     });
 
+    describe("GET /users/edit", () => {
+        it("should render a view with the user edit options", (done) => {
+            request.get(`${base}/edit`, (err, res, body) => {
+                expect(err).toBeNull();
+                expect(body).toContain("Edit Profile");
+                done();
+            });
+        });
+    });
 
 });
