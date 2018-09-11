@@ -11,7 +11,9 @@ describe("routes : emails", () => {
         this.email;
         this.user;
         
-        sequelize.sync({ force: true}).then((res) => {
+        sequelize.sync({ force: true, logging: console.log})
+        .then((res) => {
+            
             User.create({
                 email: "user@example.com",
                 password: "12345",
