@@ -23,7 +23,7 @@ module.exports = (sequelize, DataTypes) => {
   Email.associate = function(models) {
     // associations can be defined here
 
-    Email.belongsTo(models.Users, {
+    Email.belongsTo(models.User, {
       foreignKey: "userId",
       onDelete: "CASCADE",
     });
