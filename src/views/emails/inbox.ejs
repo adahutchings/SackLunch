@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <% include ../static/partials/head.ejs %>
+    </head>
+    <body>
+        <main class="container">
+            <% include ../static/partials/navbar.ejs %>
+            <% include ../static/partials/sideBar.ejs %>
+
+            <h1>Emails</h1>
+
+            <ul class="list-group">
+                <% emails.forEach((eamil) => { %>
+                    <li class="list-group-item">
+                        <a href="/emails/<%= email.id %>"> <%= email.subject %> </a>
+                    </li>
+                <% }) %>
+            </ul>
+        </main>
+    </body>
+</html>
