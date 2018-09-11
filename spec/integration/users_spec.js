@@ -27,7 +27,7 @@ describe("routes : users", () => {
     });
 
     describe("POST /users", () => {
-        /*it("should create a new user with vaild values and redirect", (done) => {
+        it("should create a new user with vaild values and redirect", (done) => {
             const options = {
                 url: base, 
                 form: {
@@ -59,7 +59,7 @@ describe("routes : users", () => {
                 });
             });
         });
-        */
+        
         it("should not create a new user with invalid attributes and redirect", (done) => {
             request.post(
                 {

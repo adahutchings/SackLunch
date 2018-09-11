@@ -3,6 +3,6 @@ const router = express.Router();
 
 const emailController = require("../controllers/emailController");
 
-router.get("/emails", emailController.index);
+router.get("/emails", emailController.inbox);
 
 module.exports = router;
