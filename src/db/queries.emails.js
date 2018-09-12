@@ -9,5 +9,17 @@ module.exports = {
         .catch((err) => {
             callback(err);
         })
+    },
+
+    createEmail(newEmail, callback){
+        return Email.create(newEmail)
+        .then((email) => {
+            console.log("SUCCESS");
+            callback(null, email);
+        })
+        .catch((err) => {
+            console.log("HERES THE ERROR");
+            callback(err);
+        })
     }
 }
