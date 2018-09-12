@@ -18,6 +18,7 @@ module.exports = {
             callback(null, email);
         })
         .catch((err) => {
+            console.log("QUERIES FAIL");
             callback(err);
         })
     }

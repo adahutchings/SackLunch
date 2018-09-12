@@ -11,17 +11,18 @@ module.exports = {
     },
 
     create(req, res, next){
+
         let newEmail = {
             subject: req.body.subject,
             body: req.body.body,
-            userId: req.params.userId
+            userId: req.body.userId
         };
         emailQueries.createEmail(newEmail, (err, email) => {
             if(err){
-                console.log("Controller TEST ====  FAIL" + err );
+                console.log("CONTROLLER FAIL" + err);
                 res.redirect(500, "/emails/new");
             } else {
-                console.log("Controller TEST SUCESS");
+                console.log("CONTROLLER SUCESS");
                 res.redirect(303, "emails/inbox");
             }
         });

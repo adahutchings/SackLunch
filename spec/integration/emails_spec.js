@@ -67,7 +67,6 @@ describe("routes : emails", () => {
             request.post(options, (err, res, body) => {
                 Email.findOne({where: {subject: "Blast off"}})
                 .then((email) => {
-                    console.log(email);
                     expect(email).not.toBeNull();
                     expect(email.subject).toBe("Blast off");
                     expect(email.subject).toBe("Come on home");
