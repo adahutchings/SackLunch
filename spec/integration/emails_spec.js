@@ -57,16 +57,17 @@ describe("routes : emails", () => {
     describe("POST /emails/create", () => {
         it("should create a new email and redirect", (done) => {
             const options = {
-                usl: `${base}/create`,
+                url: `${base}/create`,
                 form: {
                     subject: "Blast off",
                     body: "Come on home",
+                    userId: this.user.id
                 }
             };
             request.post(options, (err, res, body) => {
                 Email.findOne({where: {subject: "Blast off"}})
                 .then((email) => {
-                    
+                    console.log(email);
                     expect(email).not.toBeNull();
                     expect(email.subject).toBe("Blast off");
                     expect(email.subject).toBe("Come on home");

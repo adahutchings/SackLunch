@@ -1,5 +1,6 @@
 const emailQueries = require("../db/queries.emails.js");
 
+
 module.exports = {
     inbox(req, res, next){
         res.send("TODO: list emails");
@@ -17,10 +18,10 @@ module.exports = {
         };
         emailQueries.createEmail(newEmail, (err, email) => {
             if(err){
-                console.log("TEST ==== " + err);
+                console.log("Controller TEST ====  FAIL" + err );
                 res.redirect(500, "/emails/new");
             } else {
-                console.log("QUERIES TEST SUCESS");
+                console.log("Controller TEST SUCESS");
                 res.redirect(303, "emails/inbox");
             }
         });

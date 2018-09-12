@@ -1,4 +1,5 @@
 const Email = require("./models").Email;
+const User = require("./models").User;
 
 module.exports = {
     getAllEmails(callback){
@@ -14,11 +15,9 @@ module.exports = {
     createEmail(newEmail, callback){
         return Email.create(newEmail)
         .then((email) => {
-            console.log("SUCCESS");
             callback(null, email);
         })
         .catch((err) => {
-            console.log("HERES THE ERROR");
             callback(err);
         })
     }
