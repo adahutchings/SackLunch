@@ -1,5 +1,5 @@
 const emailQueries = require("../db/queries.emails.js");
-
+const util = require('util');
 
 module.exports = {
     inbox(req, res, next){
@@ -17,14 +17,15 @@ module.exports = {
             body: req.body.body,
             userId: req.body.userId
         };
-        console.log("REQ LOG: " + req.body.userId);
+           
+        console.log("REQ LOG: " + util.inspect(req.body));
         emailQueries.createEmail(newEmail, (err, email) => {
             if(err){
                 console.log("CONTROLLER FAIL: " + err);
                 res.redirect(500, "/emails/new");
             } else {
                 console.log("CONTROLLER SUCESS");
-                res.redirect(303, "emails/inbox");
+                res.redirect(303, "/emails/inbox");
             }
         });
     }
