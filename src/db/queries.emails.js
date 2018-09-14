@@ -15,10 +15,12 @@ module.exports = {
     createEmail(newEmail, callback){
         return Email.create(newEmail)
         .then((email) => {
+            
             callback(null, email);
         })
         .catch((err) => {
-            console.log("QUERIES FAIL");
+            console.log("EMAIL LOG: " + newEmail.userId);
+            console.log("QUERIES FAIL: " + err);
             callback(err);
         })
     }

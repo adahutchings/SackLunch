@@ -69,7 +69,7 @@ describe("routes : emails", () => {
                 .then((email) => {
                     expect(email).not.toBeNull();
                     expect(email.subject).toBe("Blast off");
-                    expect(email.subject).toBe("Come on home");
+                    expect(email.body).toBe("Come on home");
                     expect(email.userId).not.toBeNull();
                     done();
                 })

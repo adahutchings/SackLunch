@@ -17,9 +17,10 @@ module.exports = {
             body: req.body.body,
             userId: req.body.userId
         };
+        console.log("REQ LOG: " + req.body.userId);
         emailQueries.createEmail(newEmail, (err, email) => {
             if(err){
-                console.log("CONTROLLER FAIL" + err);
+                console.log("CONTROLLER FAIL: " + err);
                 res.redirect(500, "/emails/new");
             } else {
                 console.log("CONTROLLER SUCESS");
