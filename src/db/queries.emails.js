@@ -29,8 +29,6 @@ module.exports = {
             callback(null, email);
         })
         .catch((err) => {
-            console.log("EMAIL LOG: " + newEmail.userId);
-            console.log("QUERIES FAIL: " + err);
             callback(err);
         })
     },

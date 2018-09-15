@@ -4,8 +4,9 @@ const util = require('util');
 module.exports = {
     inbox(req, res, next){
         emailQueries.getAllEmails((err, emails) => {
-            console.log(emails);
+
             if(err){
+                console.log(err);
                 res.redirect(500, "static/index");
             } else {
                 res.render("emails/inbox", {emails});
@@ -14,6 +15,7 @@ module.exports = {
     },
 
     new(req, res, next){
+        console.log("USER TESTING IN controller: " + req.user.firstName)
         res.render("emails/new");
     },
 
@@ -22,16 +24,16 @@ module.exports = {
         let newEmail = {
             subject: req.body.subject,
             body: req.body.body,
-            userId: req.user.id
+            userId: req.user.id,
+            recipient: req.body.recipient,
+            sender: req.user.firstName
         };
            
         console.log("REQ LOG: " + util.inspect(req.body));
         emailQueries.createEmail(newEmail, (err, email) => {
             if(err){
-                console.log("CONTROLLER FAIL: " + err);
                 res.redirect(500, "/emails/new");
             } else {
-                console.log("CONTROLLER SUCESS");
                 res.redirect(303, "/emails/inbox");
             }
         });

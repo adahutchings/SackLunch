@@ -12,6 +12,14 @@ module.exports = (sequelize, DataTypes) => {
     userId: {
       type: DataTypes.INTEGER,
       allowNull: false
+    },
+    sender: {
+      type: DataTypes.STRING,
+      allowNull: false
+    },
+    recipient: {
+      type: DataTypes.STRING,
+      allowNull: false        
     }
   }, {});
   Email.associate = function(models) {

@@ -33,6 +33,15 @@ module.exports = {
           key: "id",
           as: "userId"
         }
+      },
+      sender: {
+        type: Sequelize.STRING,
+        allowNull: false,
+
+      },
+      recipient: {
+        type: Sequelize.STRING,
+        allowNull: false        
       }
     });
   },

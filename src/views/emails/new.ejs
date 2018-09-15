@@ -11,6 +11,14 @@
             <h1>New Message</h1>
 
             <form action="/emails/create" method="post">
+                <div class= "form-group">
+                    <label for="recipient">To:</label>
+                    <input type="text" class="form-control" name="recipient" placeholder="User Name">
+                </div>
+                <div class="form-group">
+                    <label for="sender">From:</label>
+                    <input type="hidden" name="sender" value=<%- user.firstName%>>
+                </div>
                 <div class="form-group">
                     <label for="subject">Subject:</label>
                     <input type="text" class="form-control" name="subject" aria-describedby="subjectHelp" placeholder="Subject">

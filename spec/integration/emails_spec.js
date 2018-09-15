@@ -30,7 +30,9 @@ describe("routes : emails", () => {
                 Email.create({
                     subject: "Testing",
                     body: "Ground control this is major Tom",
-                    userId: this.user.id
+                    userId: this.user.id,
+                    sender: this.user.firstName,
+                    recipient: "George"
                 })
                 .then((email) => {
                     this.email = email;
