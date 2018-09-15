@@ -27,7 +27,9 @@ describe("Email", () => {
                 Email.create({
                     subject: "First Email",
                     body: "Will it work?",
-                    userId: this.user.id
+                    userId: this.user.id,
+                    sender: this.user.firstName,
+                    recipient: "Major Tom"
                 })
                 .then((email) => {
                     this.email = email;

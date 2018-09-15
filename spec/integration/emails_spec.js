@@ -79,14 +79,16 @@ describe("routes : emails", () => {
         });
     });
 
-    /*describe("POST /emails/create", () => {
+    describe("POST /emails/create", () => {
         it("should create a new email and redirect", (done) => {
             const options = {
                 url: `${base}/create`,
                 form: {
                     subject: "Blast off",
                     body: "Come on home",
-                    userId: this.user.id
+                    userId: this.user.id,
+                    sender: this.user.firstName,
+                    recipient: "Ground Control"
                 }
             };
             request.post(options, (err, res, body) => {
@@ -106,7 +108,7 @@ describe("routes : emails", () => {
                 }
             )
         })
-    }) */
+    }) 
 
     describe("POST /emails/:id/destroy", () => {
         it("should delete the email with associated Id", (done) => {
