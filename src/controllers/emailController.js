@@ -15,7 +15,6 @@ module.exports = {
     },
 
     new(req, res, next){
-        console.log("USER TESTING IN controller: " + req.user.firstName)
         res.render("emails/new", {user: req.user});
     },
 

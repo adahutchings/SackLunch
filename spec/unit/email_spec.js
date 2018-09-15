@@ -48,7 +48,9 @@ describe("Email", () => {
             Email.create({
                 subject: "Create this",
                 body: "It's another email, thanks!",
-                userId: this.user.id
+                userId: this.user.id,
+                sender: this.user.firstName,
+                recipient: "Ada"
             })
             .then((email) => {
                 expect(email.subject).toBe("Create this");
