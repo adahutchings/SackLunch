@@ -15,7 +15,7 @@ module.exports = {
         let newEmail = {
             subject: req.body.subject,
             body: req.body.body,
-            userId: req.body.userId
+            userId: req.user.id
         };
            
         console.log("REQ LOG: " + util.inspect(req.body));
