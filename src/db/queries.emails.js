@@ -12,6 +12,16 @@ module.exports = {
         })
     },
 
+    getEmail(id, callback){
+        return Email.findById(id)
+        .then((email) => {
+            callback(null, email);
+        })
+        .catch((err) => {
+            callback(err);
+        })
+    },
+
     createEmail(newEmail, callback){
         return Email.create(newEmail)
         .then((email) => {

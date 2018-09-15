@@ -53,6 +53,16 @@ describe("routes : emails", () => {
                 expect(body).toContain("Messages");
                 /*expect(body).toContain("Testing");*/
                 done();
+            });
+        });
+    });
+
+    describe("GET /emails/:id", () => {
+        it("should render a view with the selected email", (done) => {
+            request.get(`${base}/${this.email.id}`, (err, res, body) => {
+                expect(err).toBeNull();
+                expect(body).toContain("Testing");
+                done();
             })
         })
     })

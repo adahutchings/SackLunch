@@ -35,5 +35,15 @@ module.exports = {
                 res.redirect(303, "/emails/inbox");
             }
         });
+    },
+
+    show(req, res, next) {
+        emailQueries.getEmail(req.params.id, (err, email) => {
+            if(err || email == null){
+                res.redirect(404, "/");
+            } else {
+                res.render("emails/show", {email});
+            }
+        });
     }
 }

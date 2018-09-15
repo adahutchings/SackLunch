@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <% include ../static/partials/head.ejs %>
+  </head>
+  <body>
+    <% include ../static/partials/navbar.ejs %>
+    <% include ../static/partials/sideBar.ejs %>
+
+    <main class="container">
+      <h1><%= email.subject %></h1>
+
+      <p><%= email.body %></p>
+    </main>
+
+    <% include ../static/partials/baseScripts.ejs %>
+
+  </body>
+</html>
