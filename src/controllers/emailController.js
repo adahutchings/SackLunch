@@ -45,5 +45,15 @@ module.exports = {
                 res.render("emails/show", {email});
             }
         });
-    }
+    },
+
+    destroy(req, res, next) {
+        emailQueries.deleteEmail(req.params.id, (err, email) => {
+            if(err) {
+                res.redirect(500, `/emails/${email.id}`)
+            } else {
+                res.redirect(303, "/emails/inbox")
+            }
+        });
+    },
 }

@@ -33,5 +33,16 @@ module.exports = {
             console.log("QUERIES FAIL: " + err);
             callback(err);
         })
+    },
+    deleteEmail(id, callback){
+        return Email.destroy({
+            where: {id}
+        })
+        .then((email) => {
+            callback(null, email);
+        })
+        .catch((err) => {
+            callback(err);
+        })
     }
 }

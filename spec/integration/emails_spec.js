@@ -105,4 +105,24 @@ describe("routes : emails", () => {
             )
         })
     }) */
+
+    describe("POST /emails/:id/destroy", () => {
+        it("should delete the email with associated Id", (done) => {
+            Email.all()
+            .then((emails) => {
+                const emailCountBeforeDelete = emails.length;
+
+                expect(emailCountBeforeDelete).toBe(1);
+
+                request.post(`${base}/${this.email.id}/destroy`, (err, res, body) => {
+                    Email.all()
+                    .then((emails) => {
+                        expect(err).toBeNull();
+                        expect(emails.length).toBe(emailCountBeforeDelete -1);
+                        done();
+                    })
+                })
+            })
+        })
+    })
 });
