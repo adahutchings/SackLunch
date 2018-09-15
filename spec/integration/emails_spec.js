@@ -44,6 +44,19 @@ describe("routes : emails", () => {
         });
     });
 
+    describe("GET /emails/inbox", () => {
+        it("should retrun a status code of 200 and all emails", (done) => {
+            request.get(`${base}/inbox`, (err, res, body) => {
+                
+                expect(res.statusCode).toBe(200);
+                expect(err).toBeNull();
+                expect(body).toContain("Messages");
+                /*expect(body).toContain("Testing");*/
+                done();
+            })
+        })
+    })
+
     describe("GET /emails/new", () => {
         it("should render a new email form", (done) => {
             request.get(`${base}/new`, (err, res, body) => {

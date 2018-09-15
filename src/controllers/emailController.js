@@ -3,7 +3,14 @@ const util = require('util');
 
 module.exports = {
     inbox(req, res, next){
-        res.send("TODO: list emails");
+        emailQueries.getAllEmails((err, emails) => {
+            console.log(emails);
+            if(err){
+                res.redirect(500, "static/index");
+            } else {
+                res.render("emails/inbox", {emails});
+            }
+        })
     },
 
     new(req, res, next){

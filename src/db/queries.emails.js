@@ -3,7 +3,7 @@ const User = require("./models").User;
 
 module.exports = {
     getAllEmails(callback){
-        return Emails.all()
+        return Email.all()
         .then((emails) => {
             callback(null, emails);
         })
