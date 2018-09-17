@@ -39,6 +39,11 @@ module.exports = (sequelize, DataTypes) => {
     billingZipCode: {
       type: DataTypes.STRING,
       allowNull: false
+    },
+    role: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      defaultValue: "parent"
     }
   }, {});
   User.associate = function(models) {
@@ -55,5 +60,10 @@ module.exports = (sequelize, DataTypes) => {
     });
     
   };
+
+  User.prototype.isAdmin = function(){
+    return this.role === "admin";
+  };
+  
   return User;
 };
