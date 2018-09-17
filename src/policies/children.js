@@ -6,6 +6,10 @@ module.exports = class ChildPolicy extends ApplicationPolicy {
         return this._isAdmin() || this._isParent();
     }
 
+    all() {
+        return this._isOwner();
+    }
+
     create() {
         return this.new();
     }

@@ -4,10 +4,17 @@ const Authorizer = require("../policies/children");
 module.exports = {
     all(req, res, next){
         childQueries.getAllChild((err, children) => {
+
             if(err){
                 res.redirect(500, "static/index")
             } else {
-                res.render("child/show", {children});
+
+                const authorized = new Authorizer(req.user).all();
+
+                if(authorized){
+                    res.render("child/show", {children});
+                }
+                
             }
         });  
     },
