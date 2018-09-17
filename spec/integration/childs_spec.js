@@ -44,95 +44,255 @@ describe("routes : child", () => {
             });
         });
     });
-   
 
-    describe("GET /child", () => {
-        it("should return a status code 200 and all children", (done) => {
-            request.get(`${base}`, (err, res, body) => {
-                expect(res.statusCode).toBe(200);
-                expect(err).toBeNull();
-                expect(body).toContain("Children");
-                expect(body).toContain("bob");
-                done();
+    // ADMIN USER TESTS // 
+    describe("admin users performing CRUD actions for Children", () => {
+
+        beforeEach((done) => {
+            User.create({
+                email: "admin@example.com",
+                password: "12345",
+                passwordConfirmation: "12345",
+                firstName: "Admin",
+                lastName: "Ada",
+                phone: "123-456-7890",
+                billingAddress: "10 Admiral Way",
+                billingCity: "Gresham",
+                billingState: "Oregon",
+                billingZipCode: "97320",
+                role: "admin"
+            })
+            .then((user) => {
+                request.get({
+                    url: "http://localhost:3000/auth/fake",
+                    form: {
+                        role: user.role,
+                        userId: user.id,
+                        email: user.email
+                    }
+                }, 
+                (err, res, body) => {
+                    done();
+                });
+            });
+        });
+
+        describe("GET /child", () => {
+            it("should return a status code 200 and all children", (done) => {
+                request.get(`${base}`, (err, res, body) => {
+                    expect(res.statusCode).toBe(200);
+                    expect(err).toBeNull();
+                    expect(body).toContain("Children");
+                    expect(body).toContain("bob");
+                    done();
+                })
             })
         })
-    })
-
-    describe("GET /child/new", () => {
-        it("should return a new child form", (done) => {
-            request.get(`${base}/new`, (err, res, body) => {
-                expect(err).toBeNull();
-                expect(body).toContain("New Child");
-                done();
-            });
-        });
-    });
-
-    describe("POST /child/create", () => {
-
-        const options = {
-            url: `${base}/create`,
-            form: {
-                firstName: "Blixa",
-                lastName: "Gehrts",
-                school: "Opal School",
-
-            }
-        };
-
-        /*it("should create a new child and redirect", (done) => {
-            request.post(options, (err, res, body) => {
-                Child.findOne({where: {firstName: "Blixa"}})
-                .then((child) => {
-                    expect(res.statusCode).toBe(303);
-                    expect(child.firstName).toBe("Blixa");
-                    expect(child.lastName).toBe("Gehrts");
-                    expect(child.school).toBe("Opal School");
-                    done();
-                })
-                .catch((err) => {
-                    console.log("CHILD : " + child);
-                    console.log(err);
+    
+        describe("GET /child/new", () => {
+            it("should return a new child form", (done) => {
+                request.get(`${base}/new`, (err, res, body) => {
+                    expect(err).toBeNull();
+                    expect(body).toContain("New Child");
                     done();
                 });
             });
-        }); */ 
-    });
-
-    describe("GET /child/:id/edit", () => {
-        it("should render a view with an edit child form", (done) => {
-            request.get(`${base}/${this.child.id}/edit`, (err, res, body) => {
-                expect(err).toBeNull();
-                expect(body).toContain("Edit Child");
-                expect(body).toContain("bob");
-                done();
-            });
         });
-    });
-
-    describe("POST /child/:id/update", () => {
-        it("should update the child with the given values", (done) => {
+    
+        describe("POST /child/create", () => {
+    
             const options = {
-                url: `${base}/${this.child.id}/update`,
+                url: `${base}/create`,
                 form: {
-                    firstName: "Bobby",
-                    lastName: "Villa"
+                    firstName: "Blixa",
+                    lastName: "Gehrts",
+                    school: "Opal School",
+    
                 }
             };
-
-            request.post(options, (err, res, body) => {
-                expect(err).toBeNull();
-
-                Child.findOne({
-                    where: { id: this.child.id }
-                })
-                .then((child) => {
-                    expect(child.firstName).toBe("Bobby");
+    
+            /*it("should create a new child and redirect", (done) => {
+                request.post(options, (err, res, body) => {
+                    Child.findOne({where: {firstName: "Blixa"}})
+                    .then((child) => {
+                        expect(res.statusCode).toBe(303);
+                        expect(child.firstName).toBe("Blixa");
+                        expect(child.lastName).toBe("Gehrts");
+                        expect(child.school).toBe("Opal School");
+                        done();
+                    })
+                    .catch((err) => {
+                        console.log("CHILD : " + child);
+                        console.log(err);
+                        done();
+                    });
+                });
+            }); */ 
+        });
+    
+        describe("GET /child/:id/edit", () => {
+            it("should render a view with an edit child form", (done) => {
+                request.get(`${base}/${this.child.id}/edit`, (err, res, body) => {
+                    expect(err).toBeNull();
+                    expect(body).toContain("Edit Child");
                     done();
                 });
             });
         });
+    
+        describe("POST /child/:id/update", () => {
+            it("should update the child with the given values", (done) => {
+                const options = {
+                    url: `${base}/${this.child.id}/update`,
+                    form: {
+                        firstName: "Bobby",
+                        lastName: "Villa"
+                    }
+                };
+    
+                request.post(options, (err, res, body) => {
+                    expect(err).toBeNull();
+    
+                    Child.findOne({
+                        where: { id: this.child.id }
+                    })
+                    .then((child) => {
+                        
+                        expect(child.firstName).toBe("Bobby");
+                        done();
+                    })
+                    .catch((err) => {
+                        console.log(err);
+                    });
+                })
+            });
+        });
+
+
     });
+
+    // PARENT USER TESTS //
+
+    describe("parent users performing CRUD actions for Children", () => {
+
+        beforeEach((done) => {
+            User.create({
+                email: "parent@parent.com",
+                password: "12345",
+                passwordConfirmation: "12345",
+                firstName: "Parent",
+                lastName: "Guy",
+                phone: "123-456-7890",
+                billingAddress: "25 n play place",
+                billingCity: "portland",
+                billingState: "Oregon",
+                billingZipCode: "97214",
+                role: "parent"
+            })
+            .then((user) => {
+                request.get({
+                    url: "http://localhost:3000/auth/fake",
+                    form: {
+                        role: user.role,
+                        userId: user.id,
+                        email: user.email
+                    }
+                }, 
+                (err, res, body) => {
+                    done();
+                });
+            });
+        });
+
+
+        describe("GET /child", () => {
+            it("should return a status code 200 and all children", (done) => {
+                request.get(`${base}`, (err, res, body) => {
+                    expect(res.statusCode).toBe(200);
+                    expect(err).toBeNull();
+                    expect(body).toContain("Children");
+                    expect(body).toContain("bob");
+                    done();
+                })
+            })
+        })
+    
+        describe("GET /child/new", () => {
+            it("should return a new child form", (done) => {
+                request.get(`${base}/new`, (err, res, body) => {
+                    expect(err).toBeNull();
+                    expect(body).toContain("New Child");
+                    done();
+                });
+            });
+        });
+    
+        describe("POST /child/create", () => {
+    
+            const options = {
+                url: `${base}/create`,
+                form: {
+                    firstName: "Blixa",
+                    lastName: "Gehrts",
+                    school: "Opal School",
+    
+                }
+            };
+    
+            /*it("should create a new child and redirect", (done) => {
+                request.post(options, (err, res, body) => {
+                    Child.findOne({where: {firstName: "Blixa"}})
+                    .then((child) => {
+                        expect(res.statusCode).toBe(303);
+                        expect(child.firstName).toBe("Blixa");
+                        expect(child.lastName).toBe("Gehrts");
+                        expect(child.school).toBe("Opal School");
+                        done();
+                    })
+                    .catch((err) => {
+                        console.log("CHILD : " + child);
+                        console.log(err);
+                        done();
+                    });
+                });
+            }); */ 
+        });
+    
+     /*describe("GET /child/:id/edit", () => {
+            it("should render a view with an edit child form", (done) => {
+                request.get(`${base}/${this.child.id}/edit`, (err, res, body) => {
+                    expect(err).toBeNull();
+                    expect(body).toContain("Edit Child");
+                    done();
+                });
+            });
+        });*/
+    
+        /*describe("POST /child/:id/update", () => {
+            it("should update the child with the given values", (done) => {
+                const options = {
+                    url: `${base}/${this.child.id}/update`,
+                    form: {
+                        firstName: "Bobby",
+                        lastName: "Villa"
+                    }
+                };
+    
+                request.post(options, (err, res, body) => {
+                    expect(err).toBeNull();
+    
+                    Child.findOne({
+                        where: { id: this.child.id }
+                    })
+                    .then((child) => {
+                        expect(child.firstName).toBe("Bobby");
+                        done();
+                    });
+                });
+            });
+        }); */
+    });
+
 
     
 });
