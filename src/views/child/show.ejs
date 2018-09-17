@@ -13,7 +13,7 @@
       <a href="/child/new" class="btn btn-primary btn-lg">Add a child</a>
         
       <ul class="list-group">
-        <% childs.forEach((child) => { %>
+        <% children.forEach((child) => { %>
           <li class="list-group-item">
             <%= child.firstName %> <%= child.lastName %> <%= child.school %>
             <a href="/child/<%= child.id %>/edit" class="btn btn-warning">Edit</a>

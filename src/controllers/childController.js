@@ -1,12 +1,12 @@
-const childQueries = require("../db/queries.childs.js");
+const childQueries = require("../db/queries.children.js");
 
 module.exports = {
     all(req, res, next){
-        childQueries.getAllChild((err, childs) => {
+        childQueries.getAllChild((err, children) => {
             if(err){
                 res.redirect(500, "static/index")
             } else {
-                res.render("child/show", {childs});
+                res.render("child/show", {children});
             }
         })
     },

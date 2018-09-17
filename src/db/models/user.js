@@ -51,7 +51,7 @@ module.exports = (sequelize, DataTypes) => {
 
     User.hasMany(models.Child, {
       foreignKey: "userId",
-      as: "childs"
+      as: "children"
     });
     
   };

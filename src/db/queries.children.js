@@ -5,8 +5,8 @@ module.exports = {
     getAllChild(callback){
         return Child.all()
 
-        .then((childs) => {
-            callback(null, childs);
+        .then((children) => {
+            callback(null, children);
         })
         .catch((err) => {
             callback(err);
