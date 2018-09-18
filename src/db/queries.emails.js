@@ -32,12 +32,21 @@ module.exports = {
             callback(err);
         })
     },
-    deleteEmail(id, callback){
-        return Email.destroy({
-            where: {id}
-        })
+    deleteEmail(req, callback){
+        
+        return Email.findById(req.params.id)
         .then((email) => {
-            callback(null, email);
+            const authorized = new Authorizer(req.user, email).destroy();
+
+            if(authorized) {
+                email.destroy()
+                .then((res) => {
+                    callback(null, email);
+                });
+            } else {
+                req.flash("notice", "Error");
+                callback(401);
+            }
         })
         .catch((err) => {
             callback(err);

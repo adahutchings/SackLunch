@@ -14,9 +14,12 @@
             <br><br>
             <ul class="list-group">
                 <% emails.forEach((email) => { %>
-                    <li class="list-group-item">
-                        <a href="/emails/<%= email.id %>"> <%= email.subject %></a>
-                    </li>
+                    <% if(currentUser && (currentUser.id === email.userId)) { %>
+                        <li class="list-group-item">
+                            <a href="/emails/<%= email.id %>"> <%= email.subject %></a>
+                        </li>
+                    <% } %>
+                    
                 <% }) %>
             </ul>
         </main>
