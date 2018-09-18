@@ -14,10 +14,13 @@
         
       <ul class="list-group">
         <% children.forEach((child) => { %>
-          <li class="list-group-item">
-            <%= child.firstName %> <%= child.lastName %> <%= child.school %>
-            <a href="/child/<%= child.id %>/edit" class="btn btn-warning">Edit</a>
-          </li>
+          <% if(currentUser && (currentUser.id === child.userId)) { %>
+            <li class="list-group-item">
+              <%= child.firstName %> <%= child.lastName %> <%= child.school %>
+              <a href="/child/<%= child.id %>/edit" class="btn btn-warning">Edit</a>
+            </li>
+          <% } %>
+          
         <% }) %>
       </ul>
 

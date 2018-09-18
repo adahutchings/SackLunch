@@ -11,10 +11,12 @@ module.exports = {
 
                 const authorized = new Authorizer(req.user).all();
 
-                if(authorized){
+                if(authorized){ 
                     res.render("child/show", {children});
+                } else {
+                    req.flash("notice", "You must sign in");
+                    res.redirect("/users/sign_in");
                 }
-                
             }
         });  
     },

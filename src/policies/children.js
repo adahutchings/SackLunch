@@ -7,7 +7,7 @@ module.exports = class ChildPolicy extends ApplicationPolicy {
     }
 
     all() {
-        return this._isOwner();
+        return this.new();
     }
 
     create() {
