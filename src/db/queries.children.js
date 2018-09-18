@@ -71,7 +71,7 @@ module.exports = {
             if(authorized) {
                 child.destroy()
                 .then((res) => {
-                    callback(null, topic);
+                    callback(null, child);
                 });
             } else {
                 req.flash("notice", "Not Authorized")

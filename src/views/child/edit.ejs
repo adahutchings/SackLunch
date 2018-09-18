@@ -28,8 +28,13 @@
 
             <button type="submit" class="btn btn-primary">Update</button>
             <a href="/child" class="btn btn-warning">Cancel</a>
+            
         </form>
-
+        <form style="display:initial"
+              action= "/child/<%= child.id %>/destroy"
+              method= "POST">
+            <button type="submit" class="btn btn btn-sm btn-outline-danger">Delete</button>
+        </form>
     </main>
 
     <% include ../static/partials/baseScripts.ejs %>
