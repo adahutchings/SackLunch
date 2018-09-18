@@ -32,6 +32,7 @@ module.exports = {
             callback(err);
         })
     },
+    
     deleteEmail(req, callback){
         
         return Email.findById(req.params.id)

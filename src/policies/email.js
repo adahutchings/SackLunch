@@ -5,6 +5,10 @@ module.exports = class EmailPolicy extends ApplicationPolicy {
     inbox() {
         return this._isAdmin() || this._isParent();
     }
+    
+    sent() {
+        return this._inbox();
+    }
 
     new() {
         return this._isAdmin() || this._isParent();

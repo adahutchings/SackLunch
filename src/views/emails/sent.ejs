@@ -9,13 +9,12 @@
 
         <main class="container">
             <h1>Messages</h1>
-
+            <a href="/emails/inbox" class="btn btn-primary btn-lg">Inbox</a>
             <a href="/emails/new" class="btn btn-primary btn-lg">New Message</a>
-            <a href="/emails/sent" class="btn btn-primary btn-lg">Sent Messages</a>
             <br><br>
             <ul class="list-group">
                 <% emails.forEach((email) => { %>
-                    <% if(currentUser && (currentUser.firstName === email.recipient)) { %>
+                    <% if(currentUser && (currentUser.id === email.userId)) { %>
                         <li class="list-group-item">
                             <a href="/emails/<%= email.id %>"> <%= email.subject %></a>
                         </li>

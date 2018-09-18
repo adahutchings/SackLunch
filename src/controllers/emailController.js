@@ -22,6 +22,25 @@ module.exports = {
         });
     },
 
+    sent(req, res, next){
+        emailQueries.getAllEmails((err, emails) => {
+
+            const authorized = new Authorizer(req.user).inbox();
+
+            if(authorized){
+                if(err){
+                    console.log(err);
+                    res.redirect(500, "static/index");
+                } else {
+                    res.render("emails/sent", {emails});
+                }
+            } else {
+                req.flash("notice", "Please Sign In");
+                res.redirect("/users/sign_in");
+            }
+        });
+    },
+
     new(req, res, next){
         const authorized = new Authorizer(req.user).new();
 
@@ -43,7 +62,7 @@ module.exports = {
                 subject: req.body.subject,
                 body: req.body.body,
                 userId: req.user.id,
-                recipient: req.body.recipient,
+                recipient: "Admin",
                 sender: req.user.firstName
             };
                
