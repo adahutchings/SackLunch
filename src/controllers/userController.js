@@ -45,7 +45,7 @@ module.exports = {
                 res.redirect("/users/sign_in");
             } else {
                 req.flash("notice", "You've successfully signed in");
-                res.redirect("/users/edit");
+                res.redirect("/users/landing");
             }
         })
     },
@@ -55,8 +55,30 @@ module.exports = {
         req.flash("notice", "You've successfully signed out");
         res.redirect("/");
     },
-    edit(req,res,next){
-        res.render("users/edit");
+
+    landing(req, res, next){
+        res.render("users/landing");
     },
+
+    edit(req,res,next){
+
+        userQueries.getUser(req.params.id, (err, user) => {
+            if(err || user == null) {
+                res.redirect(404, "/");
+            } else {
+                res.render(`/users/${req.parms.id}/edit`, {user});
+            }
+        });
+    },
+
+    update(req, res, next){
+        userQueries.updateUser(req.params.id, req.body, (err, user) => {
+            if(err || user == null){
+                res.redirect(404, `/users/${req.params.id}/edit`);
+            } else {
+                res.redirect("/users/landing")
+            }
+        })
+    }
 
 }

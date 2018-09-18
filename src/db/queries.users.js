@@ -39,5 +39,35 @@ module.exports = {
         .catch((err) => {
             callback(err);
         })
+    },
+
+    getUser(id, callback){
+        return User.findById(id)
+        .then((user) => {
+            callback(null, user);
+        })
+        .catch((err) => {
+            callback(err);
+        })
+
+    },
+
+    updateUser(id, updatedUser, callback){
+        return User.findById(id)
+        .then((user) => {
+            if(!user){
+                return callback("User not found");
+            } 
+
+            user.update(updatedUser, {
+                fields: Object.keys(updatedUser)
+            })
+            .then(() => {
+                callback(null, user);
+            })
+            .catch((err) => {
+                callback(err);
+            });
+        });
     }
 }

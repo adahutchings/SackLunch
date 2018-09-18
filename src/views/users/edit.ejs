@@ -8,12 +8,57 @@
         <% include ../static/partials/navbar.ejs %> 
         <% include ../static/partials/sideBar.ejs %>
 
-        
-
         <main class="container">
             <h1>Edit Profile</h1>
 
-            <h5>want user to go here</h5>
+            <form action="/users/<%= user.id %>/update" method="post">
+                <div class="form-group">
+                    <label for="firstName">First Name</label>
+                    <input value="<%= user.firstName %>" type="text" class="form-control" name="firstName" placeholder="First Name">
+                </div>
+                <div class="form-group">
+                    <label for="lastName">Last Name</label>
+                    <input value="<%= user.lastName %>" type="text" class="form-control" name="lastName" placeholder="Last Name">
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input value="<%= user.email %>" type="email" class="form-control" name="email" placeholder="Email" aria-describedby="emailHelp">
+                    <small class="text-muted" id="emailHelp">email address must be vaild</small>
+                </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input value="<%= user.password %>" type="password" class="form-control" name="password" placeholder="Password" aria-describedby="passwordHelp" >
+                </div>
+                <div class="form-group">
+                    <label for="paswordConfirmation">Password Confirmation</label>
+                    <input value="<%= user.passwordConfirmation %>" type="password" class="form-control" name="paswordConfirmation" placeholder="Reenter Password" aria-describedby="passwordHelp">
+                </div>
+                <div class="form-group">
+                    <label for="phone">Phone Number</label>
+                    <input value="<%= user.phone %>" type="tel" class="form-control" name="phone" placeholder="000-000-0000" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" required>
+                </div> 
+                <div class="form-group">
+                    <label for="billingAddress">Billing Street Address</label>
+                    <input value="<%= user.billingAddress %>" type="text" class="form-control" name="billingAddress" placeholder="Enter Street Address">
+                </div>
+                <div class="form-group">
+                    <label for="billingCity ">Billing City</label>
+                    <input value="<%= user.billingCity %>" type="text" class="form-control" name="billingCity" placeholder="Enter City">
+                </div>
+                <div class="form-group">
+                    <label for="billingState">Billing State</label>
+                    <input value="<%= user.billingState %>" type="text" class="form-control" name="billingState" placeholder="Enter State">
+                </div>
+                <div class="form-group">
+                    <label for="billingZipCode">Billing Zipcode</label>
+                    <input value="<%= user.billingZipCode %>" type="text" class="form-control" name="billingZipCode" placeholder="Enter Zipcode">
+                </div>
+                <button type="submit" class="btn btn-primary">Update</button>  
+                
+            </form>
+            
         </main>
+
+        <% include ../static/partials/baseScripts.ejs %>
     </body>
 </html>
