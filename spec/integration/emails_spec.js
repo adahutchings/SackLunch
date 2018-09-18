@@ -45,9 +45,9 @@ describe("routes : emails", () => {
         });
     });
 
-    describe("GET /emails/inbox", () => {
+    describe("GET /emails/sent", () => {
         it("should retrun a status code of 200 and all emails", (done) => {
-            request.get(`${base}/inbox`, (err, res, body) => {
+            request.get(`${base}/sent`, (err, res, body) => {
                 
                 expect(res.statusCode).toBe(200);
                 expect(err).toBeNull();
