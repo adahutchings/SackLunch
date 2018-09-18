@@ -77,17 +77,6 @@ describe("routes : child", () => {
             });
         });
 
-        describe("GET /child", () => {
-            it("should return a status code 200 and all children", (done) => {
-                request.get(`${base}`, (err, res, body) => {
-                    expect(res.statusCode).toBe(200);
-                    expect(err).toBeNull();
-                    expect(body).toContain("Children");
-                    expect(body).toContain("bob");
-                    done();
-                })
-            })
-        })
     
         describe("GET /child/new", () => {
             it("should return a new child form", (done) => {
@@ -205,8 +194,9 @@ describe("routes : child", () => {
         });
 
 
-        describe("GET /child", () => {
+        /*describe("GET /child", () => {
             it("should return a status code 200 and all children", (done) => {
+                
                 request.get(`${base}`, (err, res, body) => {
                     expect(res.statusCode).toBe(200);
                     expect(err).toBeNull();
@@ -215,7 +205,7 @@ describe("routes : child", () => {
                     done();
                 })
             })
-        })
+        })*/
     
         describe("GET /child/new", () => {
             it("should return a new child form", (done) => {
