@@ -30,7 +30,7 @@ module.exports = {
             } else {
                 passport.authenticate("local")(req, res, () => {
                     req.flash("notice", "You've sucessfully signed in");
-                    res.redirect("/");
+                    res.redirect("/users/landing");
                 })
             }
         });
@@ -45,7 +45,7 @@ module.exports = {
                 res.redirect("/users/sign_in");
             } else {
                 req.flash("notice", "You've successfully signed in");
-                res.redirect("/users/edit");
+                res.redirect("/users/landing");
             }
         })
     },
@@ -59,4 +59,7 @@ module.exports = {
         res.render("users/edit");
     },
 
+    landing(req, res, next){
+        res.render("users/landing");
+    }
 }
