@@ -144,7 +144,8 @@ module.exports = {
     destroy(req, res, next) {
         emailQueries.deleteEmail(req, (err, email) => {
             if(err) {
-                res.redirect(err, `/emails/${email.id}`)
+                console.log(err);
+                res.redirect(404, `/emails/${req.params.id}`)
             } else {
                 res.redirect(303, "/emails/inbox")
             }

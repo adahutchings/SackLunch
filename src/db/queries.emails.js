@@ -1,5 +1,6 @@
 const Email = require("./models").Email;
 const User = require("./models").User;
+const Authorizer = require("../policies/email");
 
 module.exports = {
     getAllEmails(callback){
