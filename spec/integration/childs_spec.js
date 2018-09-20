@@ -169,6 +169,7 @@ describe("routes : child", () => {
                 email: "parent@parent.com",
                 password: "12345",
                 passwordConfirmation: "12345",
+                userName:"mrParent",
                 firstName: "Parent",
                 lastName: "Guy",
                 phone: "123-456-7890",

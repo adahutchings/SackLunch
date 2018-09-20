@@ -23,7 +23,7 @@
             <br><br>
             <ul class="list-group">
                 <% emails.forEach((email) => { %>
-                    <% if(currentUser && (currentUser.firstName === email.recipient)) { %>
+                    <% if(currentUser && (currentUser.userName === email.recipient)) { %>
                         <li class="list-group-item">
                             <a href="/emails/<%= email.id %>"> <%= email.subject %></a>
                         </li>

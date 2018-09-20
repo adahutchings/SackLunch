@@ -12,6 +12,7 @@ describe("Email", () => {
 
             User.create({
                 email: "user@example.com",
+                userName: "user1",
                 firstName: "User",
                 lastName: "Example",
                 password: "12345",

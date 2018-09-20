@@ -12,6 +12,7 @@ describe("Child", () => {
                 email: "user@example.com",
                 firstName: "User",
                 lastName: "Example",
+                username: "user1",
                 password: "12345",
                 phone: "666-666-6666",
                 billingAddress: "123 lane way",

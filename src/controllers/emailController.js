@@ -121,7 +121,7 @@ module.exports = {
         
     },
 
-    show(req, res, next) {
+    show(req, res, next) { 
         emailQueries.getEmail(req.params.id, (err, email) => {
 
             if(err || email == null){
@@ -132,7 +132,7 @@ module.exports = {
                 if(authorized){
                     res.render("emails/show", {email});
                 } else {
-                    req.flash("notice", "Erorr");
+                    req.flash("notice", "Error");
                     res.redirect("/users/sign_in");
                 }
 

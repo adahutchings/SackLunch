@@ -15,7 +15,7 @@ module.exports = class EmailPolicy extends ApplicationPolicy {
     }
 
     adminNew(){
-        return this._isAdmin();
+        return this._isAdmin(); 
     }
 
     create() {
@@ -23,7 +23,7 @@ module.exports = class EmailPolicy extends ApplicationPolicy {
     }
 
     show() {
-        return this.destroy();
+        return this._isAdmin() || (this._isParent() && this._isRecipient());
     }
 
     destroy() {
