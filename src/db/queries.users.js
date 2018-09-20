@@ -14,6 +14,7 @@ module.exports = {
             email: newUser.email,
             password: hashedPassword,
             passwordConfirmation: hashedPassword,
+            userName: newUser.userName,
             firstName: newUser.firstName,
             lastName: newUser.lastName,
             phone: newUser.phone,

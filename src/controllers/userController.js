@@ -13,6 +13,7 @@ module.exports = {
             email: req.body.email,
             password: req.body.password,
             passwordConfirmation: req.body.passwordConfirmation,
+            userName: req.body.userName,
             firstName: req.body.firstName,
             lastName: req.body.lastName,
             phone: req.body.phone,
