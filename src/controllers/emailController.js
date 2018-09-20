@@ -53,6 +53,45 @@ module.exports = {
         
     },
 
+    adminNew(req, res, next){
+
+        const authorized = new Authorizer(req.user).adminNew();
+
+        if(authorized){
+            res.render("emails/adminNew", {user: req.user});
+        } else {
+  
+            req.flash("notice", "Error");
+            res.redirect("emails/inbox");
+        }
+    },
+
+    adminCreate(req, res, next){
+
+        const authorized = new Authorizer(req.user)._isAdmin();
+
+        if(authorized){
+            let newEmail = {
+                subject: req.body.subject,
+                body: req.body.body,
+                userId: req.user.id,
+                recipient: req.body.recipient,
+                sender: req.user.role
+            };
+
+            emailQueries.createEmail(newEmail, (err, email) => {
+                if(err){
+                    res.redirect(500, "emails/adminNew");
+                } else {
+                    res.redirect(303, "/emails/inbox");
+                }
+            });
+        } else {
+            req.flash("notice", "Error");
+            res.redirect("/users/sign_in");
+        }
+    },
+
     create(req, res, next){
 
         const authorized = new Authorizer(req.user).create();
@@ -62,7 +101,7 @@ module.exports = {
                 subject: req.body.subject,
                 body: req.body.body,
                 userId: req.user.id,
-                recipient: "Admin",
+                recipient: "admin",
                 sender: req.user.firstName
             };
                

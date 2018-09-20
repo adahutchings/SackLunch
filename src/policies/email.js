@@ -14,6 +14,10 @@ module.exports = class EmailPolicy extends ApplicationPolicy {
         return this._isAdmin() || this._isParent();
     }
 
+    adminNew(){
+        return this._isAdmin();
+    }
+
     create() {
         return this.new();
     }

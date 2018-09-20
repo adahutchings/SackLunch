@@ -21,7 +21,7 @@ module.exports = {
             callback(err);
         })
     },
-
+ 
     createEmail(newEmail, callback){
         return Email.create(newEmail)
         .then((email) => {
