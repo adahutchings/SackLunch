@@ -23,7 +23,7 @@ module.exports = class EmailPolicy extends ApplicationPolicy {
     }
 
     show() {
-        return this._isAdmin() || (this._isParent() && this._isRecipient());
+        return this._isAdmin() || (this._isParent() && this._isRecipient()) || (this._isParent() && this._isSender());
     }
 
     destroy() {

@@ -14,6 +14,10 @@ module.exports = class ApplicationPolicy {
         return this.record && (this.record.recipient === this.user.userName);
     }
 
+    _isSender() {
+        return this.record && (this.record.userId === this.user.id);
+    }
+
     _isAdmin() {
         return this.user && this.user.role == "admin";
     }

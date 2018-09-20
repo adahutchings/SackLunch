@@ -127,7 +127,7 @@ module.exports = {
             if(err || email == null){
                 res.redirect(404, "/");
             } else {
-                const authorized = new Authorizer(req.user, email).edit();
+                const authorized = new Authorizer(req.user, email).show();
 
                 if(authorized){
                     res.render("emails/show", {email});
