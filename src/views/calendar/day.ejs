@@ -1,0 +1,40 @@
+!DOCTYPE html>
+<html>
+  <head>
+    <% include ../static/partials/head.ejs %>
+  </head>
+  <body>
+    <% include ../static/partials/navbar.ejs %>
+    <% include ../static/partials/sideBar.ejs %>
+
+    <main class="container">
+        
+        <h3>Day goes here</h3>
+
+        <form action="/calendar/selectMeal" method="post">
+            <div class="form-group">
+                <input type="hidden" name="userId" value= <%= user.id%>>
+            </div>
+            <div class="form-group">
+                <label for="childId">Child:</label>
+                <select name="childId">
+                    <option value=<%= child.id%>> First Child</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="mealOption">Choose a Meal:</label>
+                <select name="mealOption">
+                    <option value="meat">Meat Option</option>
+                    <option value="fish">Fish Option</option>
+                    <option value="veg">Vegetarian Option</option>
+                </select>
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+
+        </form>
+    </main>
+
+    <% include ../static/partials/baseScripts.ejs %>
+
+  </body>
+</html>

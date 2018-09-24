@@ -5,7 +5,7 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.STRING,
       allowNull: false
     },
-    dayOrdered: {
+    dayOrdered: { 
       type: DataTypes.STRING,
       allowNull: false,
     },
@@ -20,12 +20,12 @@ module.exports = (sequelize, DataTypes) => {
   }, {});
   Meal.associate = function(models) {
     // associations can be defined here
-    Meal.belongsToMany(models.Child, {
+    Meal.belongsTo(models.Child, {
       foreignKey: "childId",
       onDelete: "CASCADE"
     });
 
-    Meal.belongsToMany(models.User, {
+    Meal.belongsTo(models.User, {
       foreignKey: "userId",
       onDelete: "CASCADE"
     })

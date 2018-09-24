@@ -4,5 +4,13 @@ var yearCalendar = cal.yeardayscalendar(2018);
 
 module.exports = {
 
-    
+    addMeal(newMeal, callback){
+        return Meal.addMeal(newMeal)
+        .then((meal) => {
+            callback(null, meal);
+        })
+        .catch((err) => {
+            callback(err);
+        });
+    }
 }

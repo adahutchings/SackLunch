@@ -32,7 +32,7 @@ module.exports = {
             res.redirect("/users/sign_in");
         }
         
-    },
+    }, 
 
     create(req, res, next) {
 
