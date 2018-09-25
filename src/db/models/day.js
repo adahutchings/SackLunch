@@ -32,6 +32,11 @@ module.exports = (sequelize, DataTypes) => {
   }, {});
   Day.associate = function(models) {
     // associations can be defined here
+
+    Day.hasMany(models.mealOrder, {
+      foreignKey: "date",
+      as: "dayOrdered"
+    })
   };
   return Day;
 };

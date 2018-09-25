@@ -25,6 +25,11 @@ module.exports = (sequelize, DataTypes) => {
       foreignKey: "userId",
       onDelete: "CASCADE"
     })
+
+    Child.hasMany(models.mealOrder, {
+      foreignKey: "childId",
+      as: "mealOrdered"
+    })
   };
   return Child;
 };
