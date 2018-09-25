@@ -6,6 +6,7 @@ module.exports = {
       const emailRoutes = require("../routes/emails");
       const childRoutes = require("../routes/children");
       const calendarRoutes = require("../routes/calendar");
+      const mealOptionRoutes = require("../routes/mealOptions");
 
       if(process.env.NODE_ENV === "test") {
         const mockAuth = require("../../spec/support/mock-auth.js");
@@ -17,5 +18,6 @@ module.exports = {
       app.use(emailRoutes);
       app.use(childRoutes);
       app.use(calendarRoutes);
+      app.use(mealOptionRoutes);
     }
   }
