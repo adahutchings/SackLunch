@@ -23,3 +23,36 @@ main.container {
     height: 100%;
     background-color: rgb(190, 190, 190);
 }
+
+table, th, td {
+    border: 2px solid black;
+}
+
+th {
+    text-align: center;
+}
+
+table#month {
+    background-color: lightgray;
+}
+
+tr#options {
+    height: 150px;
+
+}
+
+/* Date row of table */
+tr#days {
+    text-align: center;
+    height: 50px;
+ 
+}
+td {
+    width: 150px;
+}
+
+/*Date cell of table */ 
+td#date{
+    text-align: left;
+    
+}
