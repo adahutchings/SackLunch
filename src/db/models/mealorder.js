@@ -13,7 +13,7 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.INTEGER,
       allowNull: false
     },
-    dayOrdered: {
+    date: {
       type: DataTypes.STRING,
       allowNull: false
     }
@@ -32,7 +32,7 @@ module.exports = (sequelize, DataTypes) => {
     });
 
     mealOrder.belongsTo(model.Day, {
-      foreignKey: "dayOrdered", //might be date??
+      foreignKey: "date", //might be date??
       onDelete: "CASCADE"
     })
 

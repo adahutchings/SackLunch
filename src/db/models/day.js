@@ -35,7 +35,7 @@ module.exports = (sequelize, DataTypes) => {
 
     Day.hasMany(models.mealOrder, {
       foreignKey: "date",
-      as: "dayOrdered"
+      as: "date"
     })
   };
   return Day;

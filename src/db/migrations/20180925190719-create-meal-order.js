@@ -39,14 +39,14 @@ module.exports = {
           key: "id",
           as: "childId"
         },
-        dayOrdered: {
+        date: {
           type: Sequelize.STRING,
           onDelete: "CASCADE",
           allowNull: false,
           references: {
             model: "Days",
             key: "date",
-            as: "dayOrdered"
+            as: "date"
           }
         }
       }
