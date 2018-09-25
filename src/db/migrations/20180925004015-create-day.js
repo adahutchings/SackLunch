@@ -16,11 +16,23 @@ module.exports = {
         allowNull: false,
         type: Sequelize.STRING
       },
+      mealOneDesc: {
+        allowNull: false,
+        type: Sequelize.STRING
+      },
       mealTwo: {
         allowNull: false,
         type: Sequelize.STRING
       },
+      mealTwoDesc: {
+        allowNull: false,
+        type: Sequelize.STRING
+      },
       mealThree: {
+        allowNull: false,
+        type: Sequelize.STRING
+      },
+      mealThreeDesc: {
         allowNull: false,
         type: Sequelize.STRING
       },

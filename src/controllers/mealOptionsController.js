@@ -10,8 +10,11 @@ module.exports = {
         let newMeal = {
             date: req.body.date,
             mealOne: req.body.mealOne,
+            mealOneDesc: req.body.mealOneDesc,
             mealTwo: req.body.mealTwo,
-            mealThree: req.body.mealThree
+            mealTwoDesc: req.body.mealTwoDesc,
+            mealThree: req.body.mealThree,
+            mealThreeDesc: req.body.mealThreeDesc
         };
 
         dayQueries.addMeal(newMeal, (err, day) => {
