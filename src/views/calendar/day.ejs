@@ -13,14 +13,27 @@
         <main class="container">
             <h1><%= day.date %> </h1>
 
-            <h3>Option 1: </h3>
-            <h5><%= day.mealOne %></h5>
+            <ul class="list-group">
+                <% children.forEach((child) => { %>
+                    <% if(currentUser && (currentUser.id === child.userId)) { %>
+                        <li class="list-group-item"> 
+                            <%= child.firstName %> 
 
-            <h3>Option 2: </h3>
-            <h5> <%= day.mealTwo %></h5>
+                            <h3>Option 1: </h3>
+                            <h5><%= day.mealOne %></h5>
 
-            <h3>Option 3: </h3>
-            <h5> <%= day.mealThree %></h5>
+                            <h3>Option 2: </h3>
+                            <h5> <%= day.mealTwo %></h5>
+
+                            <h3>Option 3: </h3>
+                            <h5> <%= day.mealThree %></h5>
+                        </li>
+
+                        
+                    <% } %>
+                <% }) %>
+            </ul>
+            
         </main>
         
     </body>
