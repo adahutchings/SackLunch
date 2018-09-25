@@ -1,3 +1,5 @@
+const dayQueries = require("../db/queries.day.js");
+
 module.exports = {
 
     day(req,res,next){
@@ -5,8 +7,14 @@ module.exports = {
     },
 
     month(req,res,next){
-        res.render("calendar/month");
+        
+        dayQueries.getAllDays((err, days) => {
+            res.render("calendar/month", {days});
+        })
+        
     },
+
+    
 
 
 
