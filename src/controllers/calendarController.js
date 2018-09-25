@@ -14,7 +14,16 @@ module.exports = {
         
     },
 
-    
+    showDay(req, res, next){
+
+        dayQueries.getDay(req.params.id, (err, day) => {
+            if(err || day == null){
+                res.redirect(404, "/calendar/month", {days});
+            } else {
+                res.render("calendar/day", {day});
+            }
+        })
+    }
 
 
 
