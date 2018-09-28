@@ -66,7 +66,7 @@ module.exports = (sequelize, DataTypes) => {
     User.hasMany(models.mealOrder, {
       foreignKey: "userId",
       as: "mealOrder"
-    });
+    })
     
   };
 

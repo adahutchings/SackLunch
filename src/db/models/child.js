@@ -28,7 +28,7 @@ module.exports = (sequelize, DataTypes) => {
 
     Child.hasMany(models.mealOrder, {
       foreignKey: "childId",
-      as: "mealOrdered"
+      as: "mealOrder"
     })
   };
   return Child;

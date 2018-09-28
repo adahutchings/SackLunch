@@ -13,9 +13,9 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.INTEGER,
       allowNull: false
     },
-    date: {
+    dayOrdered: {
       type: DataTypes.STRING,
-      allowNull: false
+      allowNull: false,
     }
   }, {});
   mealOrder.associate = function(models) {
@@ -26,13 +26,13 @@ module.exports = (sequelize, DataTypes) => {
       onDelete: "CASCADE"
     });
 
-    mealOrder.belongsTo(model.Child, {
+    mealOrder.belongsTo(models.Child, {
       foreignKey: "childId",
       onDelete: "CASCADE"
     });
 
-    mealOrder.belongsTo(model.Day, {
-      foreignKey: "date", //might be date??
+    mealOrder.belongsTo(models.Day, {
+      foreignKey: "dayOrdered", 
       onDelete: "CASCADE"
     })
 

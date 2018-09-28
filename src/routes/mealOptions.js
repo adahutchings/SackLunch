@@ -4,6 +4,7 @@ const mealOptionsController = require("../controllers/mealOptionsController");
 
 router.get("/mealOptions/mealEntry", mealOptionsController.mealEntry);
 router.post("/mealOptions/create", mealOptionsController.createMeal);
+router.post("/mealOrder/newOrder", mealOptionsController.orderMeal);
 
 
 module.exports = router;

@@ -25,6 +25,24 @@ module.exports = {
                 res.redirect(303, "/calendar/month");
             }
         })
+    },
+
+    orderMeal(req, res, next){
+        let newOrder = {
+            mealOrdered: req.body.mealOrdered,
+            userId: req.user.id,
+            childId: req.child.id,
+            date: req.day.date
+        };
+
+        mealOrderQueries.addOrder(newOrder, (err, mealOrder) => {
+            if(err){
+                console.log(err);
+                res.redirect(500, "/calendar/day");
+            } else {
+                res.redirect(303, "/calendar/month");
+            }
+        })
     }
 
 }

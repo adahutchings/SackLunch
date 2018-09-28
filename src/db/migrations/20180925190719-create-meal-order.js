@@ -39,15 +39,16 @@ module.exports = {
           key: "id",
           as: "childId"
         },
-        date: {
-          type: Sequelize.STRING,
-          onDelete: "CASCADE",
-          allowNull: false,
-          references: {
-            model: "Days",
-            key: "date",
-            as: "date"
-          }
+      },
+      dayOrdered: {
+        unique: true,
+        type: Sequelize.STRING,
+        onDelete: "CASCADE",
+        allowNull: false,
+        references: {
+          model: "Days",
+          key: "date",
+          as: "dayOrdered"
         }
       }
     });
