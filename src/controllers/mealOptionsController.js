@@ -1,4 +1,6 @@
 const dayQueries = require("../db/queries.day.js");
+const mealOrderQueries = require("../db/queries.mealOrders.js");
+const childQueries = require("../db/queries.children.js");
 
 module.exports = {
 
@@ -12,7 +14,7 @@ module.exports = {
             mealOne: req.body.mealOne,
             mealOneDesc: req.body.mealOneDesc,
             mealTwo: req.body.mealTwo,
-            mealTwoDesc: req.body.mealTwoDesc,
+            mealTwoDesc: req.body.mealTwoDesc, 
             mealThree: req.body.mealThree,
             mealThreeDesc: req.body.mealThreeDesc
         };
@@ -24,6 +26,21 @@ module.exports = {
             } else {
                 res.redirect(303, "/calendar/month");
             }
+        })
+    },
+
+    newOrder(req, res, next){
+
+        childQueries.getAllChild((err, children) => {
+            dayQueries.getDay(day.id, (err, day) => {
+                if(err || day == null){
+                    console.log(day);
+                    res.redirect(404, "/calendar/month");
+                } else {
+                    res.render("mealOptions/order", {children, day});
+                }
+            })
+            
         })
     },
 

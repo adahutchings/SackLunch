@@ -39,29 +39,7 @@
                 <% }) %>
             </ul>
 
-            <form action="/mealOrder/newOrder" method="post">
-                <div class="form-group">
-                    <label for="childId"><%= child.firstName %></label>
-                    <input type="hidden" name="childId" value=<%= child.id %>>
-                </div>
-
-                <div class="form-group">
-                    <label for="date"><%= day.date %></label>
-                    <input type="hidden" name="date" value=<%= day.date %>>
-                </div>
-
-                <div class="form-group">
-                    <select name="mealOrdered">
-                        <option value="mealOne"><%= day.mealOne %></option>
-                        <option value="mealTwo"><%= day.mealTwo %></option>
-                        <option value="mealThree"><%= day.mealThree %></option>
-                    </select>
-                </div>
-
-                <div class="form-group">
-                    <input type="hidden" name="userId" value=<%= user.id %>>
-                </div>
-            </form>
+            <a href="/mealOptions/order">Order a meal</a>
             
         </main>
         

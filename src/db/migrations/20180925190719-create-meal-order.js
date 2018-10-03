@@ -40,15 +40,14 @@ module.exports = {
           as: "childId"
         },
       },
-      dayOrdered: {
-        unique: true,
-        type: Sequelize.STRING,
+      dayId: {
+        type: Sequelize.INTEGER,
         onDelete: "CASCADE",
         allowNull: false,
         references: {
           model: "Days",
-          key: "date",
-          as: "dayOrdered"
+          key: "id",
+          as: "dayId"
         }
       }
     });
