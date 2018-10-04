@@ -1,5 +1,6 @@
 const dayQueries = require("../db/queries.day.js");
 const childQueries = require("../db/queries.children.js");
+const userQueries = require("../db/queries.users.js");
 
 module.exports = {
 
@@ -12,17 +13,20 @@ module.exports = {
     },
 
     showDay(req, res, next){
-
-        childQueries.getAllChild((err, children) => {
-            dayQueries.getDay(req.params.id, (err, day) => {
-                if(err || day == null){
-                    res.redirect(404, "/calendar/month");
-                } else {
-                    res.render("calendar/day", {children, day});
-                }
+        userQueries.getUserId(req.params.id, (err, user) => {
+            childQueries.getAllChild((err, children) => {
+                dayQueries.getDay(req.params.id, (err, day) => {
+                    if(err || day == null){
+                        res.redirect(404, "/calendar/month");
+                    } else {
+                        res.render("calendar/day", {children, day, user});
+                    }
+                })
+                
             })
-            
         })
+
+        
 
 
     }

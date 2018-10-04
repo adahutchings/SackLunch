@@ -3,9 +3,9 @@ const MealOrder = require("./models").mealOrder;
 module.exports = {
 
     addOrder(newOrder, callback){
-        return MealOrder.addOrder(newOrder)
-        .then((order) => {
-            callback(null, order);
+        return MealOrder.create(newOrder)
+        .then((mealOrder) => {
+            callback(null, mealOrder);
         })
         .catch((err) => {
             callback(err);

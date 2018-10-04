@@ -38,8 +38,38 @@
                     <% } %>
                 <% }) %>
             </ul>
+            <br><br>
+            <form action="/mealOptions/newOrder" method="post">
+                <div class="form-group">
+                    <label for="childId">Choose Child: </label><br>
+                    <% children.forEach((child) => { %>
+                        <% if(currentUser && (currentUser.id === child.userId)) { %>
+                            <input type="radio" name="childId" value=<%= child.id %>><%= child.firstName%>
+                        <% } %>
+                    <% }) %>
+                </div>
 
-            <a href="/mealOptions/order">Order a meal</a>
+                <div class="form-group">
+                    <label for="mealOrdered">Meal Choice: </label><br>
+                    <input type="radio" name="mealOrdered" value="1"><%= day.mealOne %><br>
+                    <input type="radio" name="mealOrdered" value="2"><%= day.mealTwo %><br>
+                    <input type="radio" name="mealOrdered" value="3"><%= day.mealThree %><br>
+                </div>
+
+                <div class="form-group">
+                    <label for="dayId">Delivery Date: </label>
+                    <input type="hidden" name="dayId" value=<%= day.date%>>
+                    <%= day.date %>
+                </div>
+
+                <div class="form-group">
+                    <input type="hidden" name="userId" value=<%= currentUser.id %>>
+                </div>
+
+                <button type="submit" class="btn btn-primary">Order Meal</button>
+
+                    
+            </form>
             
         </main>
         

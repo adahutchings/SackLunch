@@ -105,7 +105,6 @@ module.exports = {
                 sender: req.user.firstName
             };
                
-            console.log("REQ LOG: " + util.inspect(req.body));
             emailQueries.createEmail(newEmail, (err, email) => {
                 if(err){
                     res.redirect(500, "/emails/new");

@@ -9,7 +9,7 @@ module.exports = {
             callback(null, emails);
         })
         .catch((err) => {
-            callback(err);
+            callback(err); 
         })
     },
 

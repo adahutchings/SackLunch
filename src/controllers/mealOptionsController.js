@@ -47,9 +47,9 @@ module.exports = {
     orderMeal(req, res, next){
         let newOrder = {
             mealOrdered: req.body.mealOrdered,
-            userId: req.user.id,
-            childId: req.child.id,
-            date: req.day.date
+            userId: req.body.userId,
+            childId: req.body.childId,
+            dayId: req.body.dayId
         };
 
         mealOrderQueries.addOrder(newOrder, (err, mealOrder) => {
