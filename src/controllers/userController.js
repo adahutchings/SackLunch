@@ -56,6 +56,20 @@ module.exports = {
         req.flash("notice", "You've successfully signed out");
         res.redirect("/");
     },
+
+    show(req,res,next){
+        userQueries.getUser(req.params.id, (err, result) => {
+            console.log(this.user.id);
+            if(err || result.user === undefined){
+                console.log(err);
+                req.flash("notice", "An error occured");
+                res.redirect("/users/landing");
+            } else {
+                res.render("users/edit", {...result});
+            }
+        });
+    },
+
     edit(req,res,next){
         res.render("users/edit");
     },
@@ -63,4 +77,4 @@ module.exports = {
     landing(req, res, next){
         res.render("users/landing");
     }
-}
+} 

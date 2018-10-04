@@ -42,13 +42,15 @@ module.exports = {
         })
     },
 
-    getUserId(id, callback){
-        return User.findById(id)
+    getUser(id, callback){
+        let result = {};
+        User.findById(id)
         .then((user) => {
-            callback(null, user);
-        })
-        .catch((err) => {
-            callback(err);
+            if(!user) {
+                callback(404);
+            } else {
+                result["user"] = user;
+            }
         })
     }
-}
+} 
