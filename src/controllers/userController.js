@@ -57,21 +57,17 @@ module.exports = {
         res.redirect("/");
     },
 
-    show(req,res,next){
-        userQueries.getUser(req.params.id, (err, result) => {
-            console.log(this.user.id);
-            if(err || result.user === undefined){
-                console.log(err);
-                req.flash("notice", "An error occured");
-                res.redirect("/users/landing");
-            } else {
-                res.render("users/edit", {...result});
-            }
-        });
-    },
-
     edit(req,res,next){
-        res.render("users/edit");
+
+        userQueries.getUser(req.params.id, (err, user) => {
+            if(err || user == null){
+                console.log("ERROR: " + err);
+                console.log("USER: " + user);
+                res.redirect(404, "/users/landing");
+            } else {
+                res.render("users/edit", {user});
+            }
+        })
     },
 
     landing(req, res, next){
