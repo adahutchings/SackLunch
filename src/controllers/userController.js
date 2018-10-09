@@ -65,6 +65,7 @@ module.exports = {
                 console.log("USER: " + user);
                 res.redirect(404, "/users/landing");
             } else {
+                console.log("PASS");
                 res.render("users/edit", {user});
             }
         })

@@ -43,12 +43,16 @@ module.exports = {
     },
 
     getUser(id, callback){
+        console.log("USER ID: " + id);
         return User.findById(id)
+        
         .then((user) => {
             callback(null, user);
+            console.log("user in queries: " + user);
         })
         .catch((err) => {
             callback(err);
+            console.log(err);
         })
     }
 } 

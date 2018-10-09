@@ -8,12 +8,16 @@
     <% include ../static/partials/sideBar.ejs %>
 
     <main class="container">
-        <h4><%= email.recipient %></h4>
-        <h4><%= email.sender %></h4>
-        <h6><%= email.subject %></h6>
-
-        <p><%= email.body %></p>
-
+        <div class="emailHeader">
+          <h4>To: </h4> <%= email.recipient %>
+          <h4>From: </h4> <%= email.sender %>
+          <h4>Subject: </h4> <%= email.subject %>
+          <h4>Date:</h4> <%= email.createdAt %>
+        </div>
+        <div class="emailBody">
+          <p><%= email.body %></p>
+        </div>
+          
         <form style="display:initial" action="/emails/<%= email.id %>/destroy" method="post">
             <button type="submit" class="btn btn-danger">Delete</button>
         </form>

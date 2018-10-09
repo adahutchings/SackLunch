@@ -8,29 +8,40 @@
         <% include ../static/partials/sideBar.ejs %>
 
         <main class="container">
-            <h1>New Message</h1>
+            <div class="heading">
+                <h1>New Message</h1>
+            </div>
+            
+            <div class="newEmailHeader">
 
             <form action="/emails/create" method="post">
+                <div class="newEmailHeader"></div>
                 <div class= "form-group">
-                    <h3>To:</h3>
-                    <h6>Admin</h6>
+                    <h3><label for="recipient">To:</label></h3>
+                    Admin
                 </div>
+                
+                
                 <div class="form-group">
-                    <label for="sender">From:</label>
+                    <h3><label for="sender">From:</label></h3>
                     <input type="hidden" name="sender" value=<%= user.firstName%>>
-                    <h6><%= user.firstName %> </h6>
+                    <%= user.firstName %> 
                 </div>
+                 
+                
                 <div class="form-group">
-                    <label for="subject">Subject:</label>
+                    <h4><label for="subject">Subject:</label></h4>
                     <input type="text" class="form-control" name="subject" aria-describedby="subjectHelp" placeholder="Subject">
                 </div>
+                
                 <div class="form-group">
-                    <label for="body">Body</label>
+                    <h4><label for="body">Body</label></h4>
                     <textarea rows="6" class="form-control" name="body" placeholder="Write your message here..."></textarea>
+                </div>
                 </div>
                 
 
-                <button type="submit" class="btn btn-primary">Send</button>
+                <button type="submit" class="btn btn-primary" id="sendEmail">Send</button>
             </form>
 
         </main>

@@ -2,13 +2,25 @@
 main {
 
     background-color:#fdbec0;
+    
 
+}
+
+
+body {
+    min-height: 100%;
+    background-color:#fdbec0;
 }
 
 main.container {
     margin-left: 250px;
     width: auto;
+    padding-top: 5%;
     
+}
+
+.heading {
+    padding-bottom: 5%;
 }
 
 .wrapper {
@@ -24,6 +36,8 @@ main.container {
     background-color: rgb(190, 190, 190);
 }
 
+
+/******* CALENDAR SECTION *******/
 table, th, td {
     border: 2px solid black;
 }
@@ -60,4 +74,85 @@ td#date{
 .childName{
     font-weight: bold;
     font-size: 300%;
+}
+
+
+/****** BUTTON SECTION ******/ 
+
+
+#newChildButton{
+    padding-bottom: 5%;
+}
+
+
+a:visited {
+    color: black;
+}
+
+/****** CHILD SECTION ******/
+
+.childNameList{
+    font-size: 24px;
+    
+}
+
+.childSchool{
+    text-align: center;
+    display: inline;
+    font-size: 14px;
+}
+
+.btn-edit-child {
+    float: right;
+    background-color: gold;
+}
+
+/****** EMAIL SECTION ******/
+
+.newEmailHeader {
+    background-color: grey;
+    padding: 0px 10px 10px 15px;
+    border-radius: 10px;
+    margin: 10px;
+    font-size: 20px;
+}
+
+.btn-primary#sendEmail{
+    margin-top: 10px;
+    margin-left: 25px;
+}
+
+a#emailSubject {
+    padding-right: 50px;
+}
+
+.emailDate{
+    float: right;
+}
+
+.btn-primary-newEmail{
+    float: right;
+    background-color: bisque;
+}
+
+.btn-primary-inbox{
+    background-color: bisque;
+    
+}
+
+.emailHeader{
+    background-color: grey;
+    border-radius: 5px;
+    padding: 10px 5px 5px 10px;
+    margin: 5px 25% 10px 0px;
+    font-size: 14pt;
+}
+
+.emailBody {
+    background-color: rgb(223, 213, 213);
+    border-radius: 5px;
+    height: 150px;
+    padding: 15px;
+    margin-bottom: 10px;
+    margin-right: 10%;
 }
