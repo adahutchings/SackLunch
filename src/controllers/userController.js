@@ -1,5 +1,6 @@
 const userQueries = require("../db/queries.users.js");
 const passport = require("passport");
+const util = require('util');
 
 module.exports = {
     
@@ -63,6 +64,7 @@ module.exports = {
             if(err || user == null){
                 console.log("ERROR: " + err);
                 console.log("USER: " + user);
+                console.log("REQ: "  + util.inspect(req.params));
                 res.redirect(404, "/users/landing");
             } else {
                 console.log("PASS");
