@@ -36,12 +36,49 @@ main.container {
     background-color: rgb(190, 190, 190);
 }
 
+/****** SIGN IN PAGE ******/
+.signInForm{
+    margin: 5% 35% 18% 35%;
+    padding: 25px;
+    text-align: center;
+    border: 3px solid black;
+    border-radius: 10px;
+    display: inline-flex;
+    background-color: grey;
+    
+}
+
+.signIn{
+    text-align: center;
+    margin-top: 10%;
+}
+
+/****** SIGN UP PAGE ******/
+
+.signUpForm {
+    margin: 40px 180px 30px 180px;
+    padding: 20px;
+    border: 3px solid black;
+    border-radius: 10px;
+    background-color: grey;
+}
+
+.signUp {
+    text-align: center;
+    margin: 5% 10% 0% 10%;
+}
+
 
 /******* CALENDAR SECTION *******/
 
+.calendarMonth { 
+    margin: 10%;
+    padding-bottom: 30px;
+}
 
 th {
     text-align: center;
+    padding: 10px;
 }
 
 table#month {
@@ -59,12 +96,11 @@ tr#options {
 tr#days {
     text-align: center;
     height: 50px;
-    border: 2px solid black;
-    border-radius: 10%;
- 
 }
+
 td {
-    border: 2px solid black;
+    border: 3px solid black;
+    border-radius: 10px;
     width: 150px;
 }
 
@@ -83,9 +119,7 @@ td#date{
 /****** BUTTON SECTION ******/ 
 
 
-#newChildButton{
-    padding-bottom: 5%;
-}
+
 
 
 a:visited {
@@ -108,6 +142,45 @@ a:visited {
 .btn-edit-child {
     float: right;
     background-color: gold;
+}
+
+.childHeading {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+#newChildButton{
+    padding-top: 20px;
+}
+
+.newChild {
+    text-align: center;
+    margin-bottom: 40px;
+}
+.newChildForm {
+    border: 3px black solid;
+    border-radius: 10px;
+    background-color: grey;
+    padding: 30px;
+    margin: 30px;
+}
+
+.editChild {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.editChildForm {
+    margin: 20px 20px 0px 20px;
+    padding: 0% 20% 1% 20%;
+}
+
+.childDelete {
+    text-align: center;
+}
+
+.childEditButtons {
+    text-align: center;
 }
 
 /****** EMAIL SECTION ******/
@@ -158,4 +231,27 @@ a#emailSubject {
     padding: 15px;
     margin-bottom: 10px;
     margin-right: 10%;
+}
+
+.inbox {
+    border: 5px black solid;
+    border-radius: 5px;
+    padding: 20px;
+    margin: 5%;
+    background-color: grey;
+}
+
+.sentButton {
+    float: right;
+}
+.newButton {
+    float: right;
+}
+.inboxButtons {
+    margin: 0% 10% 0% 10%;
+}
+
+.messageHeader {
+    text-align: center;
+    margin-bottom: 40px;
 }

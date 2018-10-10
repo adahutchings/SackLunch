@@ -8,35 +8,50 @@
         <% include ../static/partials/sideBar.ejs %> 
 
         <main class="container">
-            <h1>Messages</h1>
-
-            <% if(currentUser && currentUser.role === "parent") { %>
-                <a href="/emails/new" class="btn btn-primary btn-lg">New Message</a>
-                <a href="/emails/sent" class="btn btn-primary btn-lg">Sent Messages</a>
-            <% } %>
-            
-            <% if(currentUser && currentUser.role === "admin") { %> 
-                <a href="/emails/adminNew" class="btn btn-primary btn-lg">New Message</a>
-                <a href="/emails/sent" class="btn btn-primary btn-lg">Sent Messages</a>
-            <% } %>
-            
-            <br><br>
-            <ul class="list-group">
-                <% emails.forEach((email) => { %>
-                    <% if(currentUser && (currentUser.userName === email.recipient)) { %>
-                        <li class="list-group-item">
-                            <a href="/emails/<%= email.id %>"> <%= email.subject %></a>
-                        </li>
-                    <% } %>
-
-                    <% if(currentUser && (currentUser.role === email.recipient)) { %>
-                        <li class="list-group-item">
-                            <a href="/emails/<%= email.id %>"> <%= email.subject %></a>
-                        </li>
+            <div class="messageHeader">
+                <h1>Messages</h1>
+            </div>
+             
+            <div class="inboxButtons">
+                    <% if(currentUser && currentUser.role === "parent") { %>
+                        <a href="/emails/new" class="btn btn-primary btn-lg">New Message</a>
+                        <div class="sentButton">
+                            <a href="/emails/sent" class="btn btn-primary btn-lg">Sent Messages</a>
+                        </div>
+                        
                     <% } %>
                     
-                <% }) %>
-            </ul>
+                    <% if(currentUser && currentUser.role === "admin") { %> 
+                        <a href="/emails/adminNew" class="btn btn-primary btn-lg">New Message</a>
+                        <div class="sentButton">
+                            <a href="/emails/sent" class="btn btn-primary btn-lg" >Sent Messages</a>
+                        </div>
+                        
+                    <% } %>
+
+            </div>
+           
+
+            <div class="inbox">
+                
+                    <ul class="list-group">
+                        <% emails.forEach((email) => { %>
+                            <% if(currentUser && (currentUser.userName === email.recipient)) { %>
+                                <li class="list-group-item">
+                                    <a href="/emails/<%= email.id %>"> <%= email.subject %></a>
+                                </li>
+                            <% } %>
+        
+                            <% if(currentUser && (currentUser.role === email.recipient)) { %>
+                                <li class="list-group-item">
+                                    <a href="/emails/<%= email.id %>"> <%= email.subject %></a>
+                                </li>
+                            <% } %>
+                            
+                        <% }) %>
+                    </ul>
+            </div>
+            
         </main>
     </body>
 </html>

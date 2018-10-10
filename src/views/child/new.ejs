@@ -9,26 +9,31 @@
         <% include ../static/partials/sideBar.ejs %>
 
         <main class="container">
-            <h1>New Child</h1>
-
-            <form action="/child/create" method="post">
-                <div class="form-group">
-                    <label for="firstName">First Name</label>
-                    <input type="text" class="form-control" name="firstName">
-                </div>
-
-                <div class="form-group">
-                    <label for="lastName">Last Name</label>
-                    <input type="text" class="form-control" name="lastName">
-                </div>
-
-                <div class="form-group">
-                    <label for="school">School</label>
-                    <input type="text" class="form-control" name="school">
-                </div>
-
-                <button type="submit" class="btn btn-primary">Add Child</button>
-            </form>
+            <div class="newChild">
+                <h1>New Child</h1>
+            </div>
+            
+            <div class="newChildForm">
+                    <form action="/child/create" method="post">
+                        <div class="form-group">
+                            <label for="firstName">First Name</label>
+                            <input type="text" class="form-control" name="firstName">
+                        </div>
+        
+                        <div class="form-group">
+                            <label for="lastName">Last Name</label>
+                            <input type="text" class="form-control" name="lastName">
+                        </div>
+        
+                        <div class="form-group">
+                            <label for="school">School</label>
+                            <input type="text" class="form-control" name="school">
+                        </div>
+        
+                        <button type="submit" class="btn btn-primary">Add Child</button>
+                    </form>
+            </div>
+            
         </main>
     </body>
 </html>

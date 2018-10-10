@@ -8,13 +8,11 @@
     <% include ../static/partials/sideBar.ejs %>
 
     <main class="container">
-      <div class="heading">
+      <div class="childHeading">
           <h1>Children</h1>
       </div>
       
-      <div id="newChildButton">
-          <a href="/child/new" class="btn btn-primary btn-lg">Add a child</a>
-      </div>
+      
       
         
       <ul class="list-group">
@@ -34,6 +32,10 @@
           
         <% }) %>
       </ul>
+
+      <div id="newChildButton">
+          <a href="/child/new" class="btn btn-primary btn-lg">Add a child</a>
+      </div>
 
     </main>
 

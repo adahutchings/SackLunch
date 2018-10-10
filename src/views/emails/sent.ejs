@@ -8,21 +8,33 @@
         <% include ../static/partials/sideBar.ejs %> 
 
         <main class="container">
-            <h1>Messages</h1>
-            <a href="/emails/inbox" class="btn btn-primary-inbox btn-lg">Inbox</a>
-            <a href="/emails/new" class="btn btn-primary-newEmail btn-lg">New Message</a>
-            <br><br>
+            <div class="messageHeader">
+                <h1>Messages</h1>
+            </div>
             
-            <ul class="list-group" >
-                <% emails.forEach((email) => { %>
-                    <% if(currentUser && (currentUser.id === email.userId)) { %>
-                        <li class="list-group-item">
-                            <a href="/emails/<%= email.id %>" id="emailSubject"> <%= email.subject %></a> <div class="emailDate"><%= email.createdAt %></div>
-                        </li>
-                    <% } %>
-                    
-                <% }) %>
-            </ul>
+            <div class="inboxButtons">
+                <a href="/emails/inbox" class="btn btn-primary btn-lg">Inbox</a>
+
+                <div class="newButton">
+                    <a href="/emails/new" class="btn btn-primary btn-lg">New Message</a>
+                </div>
+            </div>
+
+            
+            <div class="inbox">
+                    <ul class="list-group" >
+                            <% emails.forEach((email) => { %>
+                                <% if(currentUser && (currentUser.id === email.userId)) { %>
+                                    <li class="list-group-item">
+                                        <a href="/emails/<%= email.id %>" id="emailSubject"> <%= email.subject %></a> <div class="emailDate"><%= email.createdAt %></div>
+                                    </li>
+                                <% } %>
+                                
+                            <% }) %>
+                    </ul>
+            </div>
+            
+            
             
         </main>
     </body>

@@ -11,71 +11,78 @@
 
             <% include ../static/partials/messages.ejs %>
             
+            <div class="signUp">
+                <h1>Sign up</h1>
+            </div>
+            
 
-            <h1>Sign up</h1>
+            <div class="signUpForm">
 
-            <form action="/users" method="post">
-                <div class="form-group">
-                    <label for="email">Email</label>
-                    <input type="email" class="form-control" name="email" aria-describedby="emailHelp" placeholder="Enter Email Address">
-                    <small class="text-muted" id="emailHelp">email address must be vaild</small>
-                </div>
+                    <form action="/users" method="post">
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" class="form-control" name="email" aria-describedby="emailHelp" placeholder="Enter Email Address">
+                            <small class="text-muted" id="emailHelp">email address must be vaild</small>
+                        </div>
+        
+                        <div class="form-group">
+                            <label for="passord">Password</label>
+                            <input type="password" class="form-control" name="password" placeholder="Enter Password">
+                        </div>
+        
+                        <div class="form-group">
+                            <label for="passwordConfirmation">Password Confirmation</label>
+                            <input type="password" class="form-control" name="passwordConfirmation" aria-describedby="passwordHelp" placeholder="Enter Password">
+                            <small class="text-muted", id="passwordHelp">passwords must match</small>
+                        </div>
+        
+                        <div class="form-group">
+                            <label for="userName">Username</label>
+                            <input type="text" class="form-control" name="userName" placeholder="Choose a username">
+                        </div>
+        
+                        <div class="form-group">
+                            <label for="firstName">First Name</label>
+                            <input type="text" class="form-control" name="firstName" placeholder="Enter First Name">
+                        </div>
+        
+                        <div class="form-group">
+                            <label for="lastName">Last Name</label>
+                            <input type="text" class="form-control" name="lastName" placeholder="Enter Last Name">
+                        </div>
+        
+                        <div class="form-group">
+                            <label for="phone">Phone Number</label>
+                            <input type="tel" class="form-control" name="phone" placeholder="000-000-0000" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" required />
+                        </div>
+        
+                        <div class="form-group">
+                            <label for="billingAddress">Billing Street Address</label>
+                            <input type="text" class="form-control" name="billingAddress" placeholder="Enter Street Address">
+                        </div>
+        
+                        <div class="form-group">
+                            <label for="billingCity">Billing City</label>
+                            <input type="text" class="form-control" name="billingCity" placeholder="Enter City">
+                        </div>
+        
+                        <div class="form-group">
+                            <label for="billingState">Billing State</label>
+                            <input type="text" class="form-control" name="billingState" placeholder="Enter State">
+        
+                        </div>
+        
+                        <div class="form-group">
+                            <label for="billingZipCode">Billing Zipcode</label>
+                            <input type="text" pattern="[0-9]{5}" class="form-control" name="billingZipCode" placeholder="Enter Zipcode">
+                        </div>
+        
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                        <button type="reset" class="btn btn-warning">Clear</button>
+                    </form>
+            </div>
 
-                <div class="form-group">
-                    <label for="passord">Password</label>
-                    <input type="password" class="form-control" name="password" aria-describedby="passwordHelp" placeholder="Enter Password">
-                    <small class="text-muted", id="passwordHelp">passwords must match</small>
-                </div>
-
-                <div class="form-group">
-                    <label for="passwordConfirmation">Password Confirmation</label>
-                    <input type="password" class="form-control" name="passwordConfirmation" aria-describedby="passwordHelp" placeholder="Enter Password">
-                </div>
-
-                <div class="form-group">
-                    <label for="userName">Username</label>
-                    <input type="text" class="form-control" name="userName" placeholder="Choose a username">
-                </div>
-
-                <div class="form-group">
-                    <label for="firstName">First Name</label>
-                    <input type="text" class="form-control" name="firstName" placeholder="Enter First Name">
-                </div>
-
-                <div class="form-group">
-                    <label for="lastName">Last Name</label>
-                    <input type="text" class="form-control" name="lastName" placeholder="Enter Last Name">
-                </div>
-
-                <div class="form-group">
-                    <label for="phone">Phone Number</label>
-                    <input type="tel" class="form-control" name="phone" placeholder="000-000-0000" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" required />
-                </div>
-
-                <div class="form-group">
-                    <label for="billingAddress">Billing Street Address</label>
-                    <input type="text" class="form-control" name="billingAddress" placeholder="Enter Street Address">
-                </div>
-
-                <div class="form-group">
-                    <label for="billingCity">Billing City</label>
-                    <input type="text" class="form-control" name="billingCity" placeholder="Enter City">
-                </div>
-
-                <div class="form-group">
-                    <label for="billingState">Billing State</label>
-                    <input type="text" class="form-control" name="billingState" placeholder="Enter State">
-
-                </div>
-
-                <div class="form-group">
-                    <label for="billingZipCode">Billing Zipcode</label>
-                    <input type="text" pattern="[0-9]{5}" class="form-control" name="billingZipCode" placeholder="Enter Zipcode">
-                </div>
-
-                <button type="submit" class="btn btn-primary">Submit</button>
-                <button type="reset" class="btn btn-warning">Clear</button>
-            </form>
+            
         </main>
 
         <% include ../static/partials/baseScripts.ejs %>

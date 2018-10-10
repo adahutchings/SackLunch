@@ -1,11 +1,20 @@
 const userQueries = require("../db/queries.users.js");
 const passport = require("passport");
 const util = require('util');
+const Authorizer = require("../policies/user");
 
 module.exports = {
     
     signUp(req, res, next){
-        res.render("users/sign_up");
+        
+        const authorized = new Authorizer(req.user).signUp();
+
+        if(authorized){
+            res.render("users/sign_up");
+        } else {
+            res.redirect("/users/landing");
+        }
+        
     },
 
     create(req, res, next){
@@ -27,18 +36,25 @@ module.exports = {
         userQueries.createUser(newUser, (err, user) => {
             if(err){
                 console.log(err);
-                req.flash("error", err);
+                req.flash("Sign In Error");
                 res.redirect("/users/sign_up");
             } else {
                 passport.authenticate("local")(req, res, () => {
-                    req.flash("notice", "You've sucessfully signed in");
                     res.redirect("/users/landing");
                 })
             }
         });
     },
     signInForm(req,res,next){
-        res.render("users/sign_in");
+
+        const authorized = new Authorizer(req.user).signUp();
+
+        if(authorized){
+            res.render("users/sign_in");
+        } else {
+            res.redirect("/users/landing");
+        }
+        
     },
     signIn(req,res,next){
         passport.authenticate("local")(req, res, function () {
@@ -46,34 +62,58 @@ module.exports = {
                 req.flash("notice", "Sign in failed. Please try again.")
                 res.redirect("/users/sign_in");
             } else {
-                req.flash("notice", "You've successfully signed in");
                 res.redirect("/users/landing");
             }
         })
     },
 
     signOut(req,res,next){
-        req.logout();
-        req.flash("notice", "You've successfully signed out");
-        res.redirect("/");
+
+        const authorized = new Authorizer(req.user).signOut();
+
+        if(authorized){
+            req.logout();
+            req.flash("notice", "You've successfully signed out");
+            res.redirect("/");
+        } else {
+            res.redirect("/users/sign_in");
+        }
+
     },
 
     edit(req,res,next){
 
-        userQueries.getUser(req.params.id, (err, user) => {
-            if(err || user == null){
-                console.log("ERROR: " + err);
-                console.log("USER: " + user);
-                console.log("REQ: "  + util.inspect(req.params));
-                res.redirect(404, "/users/landing");
-            } else {
-                console.log("PASS");
-                res.render("users/edit", {user});
-            }
-        })
+        const authorized = new Authorizer(req.user).edit();
+
+        if(authorized) {
+            userQueries.getUser(req.params.id, (err, user) => {
+                if(err || user == null){
+                    console.log("ERROR: " + err);
+                    console.log("USER: " + user);
+                    console.log("REQ: "  + util.inspect(req.parmas));
+                    res.redirect(404, "/users/landing");
+                } else {
+                    console.log("PASS");
+                    res.render("users/edit", {user});
+                }
+            })
+        } else {
+            req.flash("You are not authorized to do that");
+            res.redirect("/users/landing");
+        }
+
+        
     },
 
     landing(req, res, next){
-        res.render("users/landing");
+
+        const authorized = new Authorizer(req.user).landing();
+
+        if(authorized){
+            res.render("users/landing");
+        } else {
+            res.redirect("/users/sign_in");
+        }
+        
     }
 } 
