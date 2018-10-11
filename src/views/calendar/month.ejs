@@ -10,7 +10,7 @@
 
         
 
-        <main class="container">
+        <main class="container"> 
             <div class="calendarMonth">
                 <table id="month" style="width:100%">
                     <th colspan="5">October 2018</th>
@@ -41,7 +41,12 @@
                     </tr>
                     <tr id="options">
                         <td>
-                            option 1 <br>
+                            <% days.findAll({ %>
+                               <% where: { %>
+                                    <% id: 1 %>
+                                <% } %>
+                                <%= mealOne %>
+                            <% }) %>
                             option 2 <br>
                             option 3 <br>
                         </td>
