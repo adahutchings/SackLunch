@@ -6,7 +6,6 @@ main {
 
 }
 
-
 body {
     min-height: 100%;
     background-color:#fdbec0;
@@ -28,13 +27,50 @@ main.container {
     align-items: stretch;
 }
 
+.navbar {
+    position: fixed;
+    width: 100%;
+    top:0;
+}
+
+
+/****** SIDEBAR ******/
+
 #sidebar {
-    position: absolute;
+    margin-top: 56px;
+    position: fixed;
     min-width: 250px;
     max-width: 250px;
     height: 100%;
     background-color: rgb(190, 190, 190);
 }
+
+.sidebar-links {
+    margin: 10px 20px 10px 10px;
+    padding: 10%;
+    text-align: center;
+}
+
+.sb-btn {
+    background-color: pink;
+}
+
+/****** INDEX PAGE ******/
+
+.introHeader {
+    margin: 10%;
+    text-align: center;
+}
+
+.indexIntro {
+    margin: 10% 20% 10% 20%;
+    text-align: center;
+}
+
+.indexSignUpButton {
+    text-align: center;
+}
+
 
 /****** SIGN IN PAGE ******/
 .signInForm{
@@ -72,8 +108,10 @@ main.container {
 /******* CALENDAR SECTION *******/
 
 .calendarMonth { 
-    margin: 10%;
-    padding-bottom: 30px;
+    display: block;
+    margin: 5% 10%;
+    transition: all 1s ease;
+    
 }
 
 th {
@@ -88,14 +126,14 @@ table#month {
 }
 
 tr#options {
-    height: 150px;
+    height: 100px;
 
 }
 
 /* Date row of table */
 tr#days {
     text-align: center;
-    height: 50px;
+    height: 40px;
 }
 
 td {

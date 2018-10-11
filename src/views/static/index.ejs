@@ -11,10 +11,19 @@
     <main>
 
         <% include ../static/partials/messages.ejs %>
+        <div class="introHeader">
+            <h1>Welcome to SackLunch</h1>
+        </div>
+        
 
-        <p>Welcome to SackLunch, a place for parents on the go to order exciting, delicious, and afforable sack lunch for daily delivery at your child's school. Signing up is easy and you can start having lunches delivered tomorrow!</p>
+        <div class="indexIntro">
+            SackLunch is a place for parents on the go to order exciting, delicious, and afforable sack lunches for daily delivery at their children's school. Signing up is easy and you can start having lunches delivered as early as tomorrow!
+        </div>
 
-        <a href="/users/sign_up" class="btn btn-primary btn-lg">Sign Up</a>
+        <div class="indexSignUpButton">
+            <a href="/users/sign_up" class="btn btn-primary btn-lg">Sign Up</a>
+        </div>
+        
     </main>
 
     <% include ./partials/baseScripts.ejs %>

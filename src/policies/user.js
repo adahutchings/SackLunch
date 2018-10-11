@@ -17,4 +17,8 @@ module.exports = class UserPolicy extends ApplicationPolicy {
     signUp() {
         return this._isGuest();
     }
+
+    index() {
+        return this.signUp();
+    }
 }

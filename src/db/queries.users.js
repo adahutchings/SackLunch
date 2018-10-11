@@ -43,7 +43,7 @@ module.exports = {
     },
 
     getUser(id, callback){
-        console.log("USER ID: " + id);
+
         return User.findById(id)
         
         .then((user) => {

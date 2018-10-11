@@ -88,12 +88,8 @@ module.exports = {
         if(authorized) {
             userQueries.getUser(req.params.id, (err, user) => {
                 if(err || user == null){
-                    console.log("ERROR: " + err);
-                    console.log("USER: " + user);
-                    console.log("REQ: "  + util.inspect(req.parmas));
                     res.redirect(404, "/users/landing");
                 } else {
-                    console.log("PASS");
                     res.render("users/edit", {user});
                 }
             })

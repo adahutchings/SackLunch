@@ -7,18 +7,13 @@
 
         </div>
 
-        <div class="user-picture">
-           
-            
-        </div>
-
         <div class="sidebar-links">
-            <br><a href= "/child">Child</a>
-            <br><a href="/emails/inbox">Inbox</a>
-            <br><a href="/calendar/month">Calendar</a>
-            <br><a href="/users/:id/edit">Update Account</a>
+            <br><a href= "/child" class="btn sb-btn">Child</a>
+            <br><a href="/emails/inbox" class="btn sb-btn">Inbox</a>
+            <br><a href="/calendar/month" class="btn sb-btn">Calendar</a>
+            <br><a href="/users/<%= currentUser.id %>/edit" class="btn sb-btn">Update Account</a>
             <% if(currentUser && (currentUser.role === 'admin')) { %>
-                <br><a href="/mealOptions/mealEntry">Add Meals to Calendar</a>
+                <br><a href="/mealOptions/mealEntry" class="btn sb-btn">Add Meals to Calendar</a>
             <% } %> 
             
         </div>
