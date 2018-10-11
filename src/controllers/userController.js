@@ -101,6 +101,16 @@ module.exports = {
         
     },
 
+    update(req, res, next) {
+        userQueries.updateUser(req, req.body, (err, user) => {
+            if(err || user == null) {
+                res.redirect(401, `/users/${req.params.id}/edit`);
+            } else {
+                res.redirect("../landing");
+            }
+        })
+    },
+
     landing(req, res, next){
 
         const authorized = new Authorizer(req.user).landing();

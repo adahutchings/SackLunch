@@ -2,6 +2,7 @@ const User = require("./models").User;
 const bcrypt = require("bcryptjs");
 const sgMail = require('@sendgrid/mail');
 
+
 sgMail.setApiKey(process.env.SENDGRID_API_KEY);
 
 module.exports = {
@@ -48,11 +49,29 @@ module.exports = {
         
         .then((user) => {
             callback(null, user);
-            console.log("user in queries: " + user);
         })
         .catch((err) => {
             callback(err);
             console.log(err);
         })
+    },
+
+    updateUser(req, updatedUser, callback) {
+        return User.findById(req.params.id)
+        .then((user) => {
+            if(!user){
+                return callback("User not found");
+            }
+
+            user.update(updatedUser, {
+                fields: Object.keys(updatedUser)
+            })
+            .then(() => {
+                callback(null, user);
+            })
+            .catch((err) => {
+                callback(err);
+            });
+        });
     }
 } 

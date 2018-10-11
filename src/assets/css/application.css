@@ -45,6 +45,11 @@ main.container {
     background-color: rgb(190, 190, 190);
 }
 
+.sidebar-header {
+    margin-top: 10%;
+    text-align: center;
+}
+
 .sidebar-links {
     margin: 10px 20px 10px 10px;
     padding: 10%;
@@ -53,6 +58,8 @@ main.container {
 
 .sb-btn {
     background-color: pink;
+    margin: 5px;
+    width: 175px;
 }
 
 /****** INDEX PAGE ******/

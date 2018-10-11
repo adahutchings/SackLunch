@@ -11,8 +11,49 @@
         
 
         <main class="container">
-            <h1>Edit Profile</h1>
+            <div class="editProfileHeader">
+                <h1>Edit Profile</h1>
+            </div>
+
+            <div class="editProfileForm">
+                <form action="/users/<%= user.id %>/update" method="post">
+                    <div class="form-group">
+                        <label for="firstName">First Name</label>
+                        <input value="<%= user.firstName %>" type="text" class="form-control" name="firstName">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="lastName">Last Name</label>
+                        <input value="<%= user.lastName %>" type="text" class="form-control" name="lastName">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="phone">Phone</label>
+                        <input value="<%= user.phone %>" type="tel" class="form-control" name="phone">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="billingAddress">Billing Street Address</label>
+                        <input value="<%= user.billingAddress %>" type="text" class="form-control" name="billingAddress">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="billingState">Billing State</label>
+                        <input value="<%= user.billingState %>" type="text" class="form-control" name="billingState">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="billingZipCode">Billing Zipcode</label>
+                        <input value="<%= user.billingZipCode %>" type="text" class="form-control" name="billingZipCode">
+                    </div>
+
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                    <button type="reset" class="btn btn-warning">Clear</button>
+
+                </form>
+            </div>
             
+
         </main>
     </body>
 </html> 
