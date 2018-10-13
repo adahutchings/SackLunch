@@ -9,7 +9,7 @@
 
     <main class="container">
         
-        <div class="editChild">
+        <div class="pageHead">
             <h1>Edit Child</h1>
         </div>
         
@@ -30,8 +30,8 @@
                         <input value="<%= child.school %>" type="text" class="form-control" name="school">
                     </div>
                     <div class="childEditButtons">
-                        <button type="submit" class="btn btn-primary">Update</button>
-                        <a href="/child" class="btn btn-warning" >Cancel</a>
+                        <button type="submit" class="btn confirm-button">Update</button>
+                        <a href="/child" class="btn second-btn" >Cancel</a>
                     </div>
                 </form>
         </div>
@@ -41,7 +41,7 @@
             <form style="display:initial"
                 action= "/child/<%= child.id %>/destroy"
                 method= "POST">
-                <button type="submit" class="btn btn-lg btn-danger">Delete</button>
+                <button type="submit" class="btn childDelete-btn">Delete</button>
           </form>
         </div>
         

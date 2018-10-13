@@ -11,66 +11,76 @@
         
 
         <main class="container">
-            <h1><%= day.date %> </h1>
 
-            <ul class="list-group">
-                <% children.forEach((child) => { %>
-                    <% if(currentUser && (currentUser.id === child.userId)) { %>
-                        <li class="list-group-item"> 
-                            <div class="childName">
-                                <%= child.firstName %> 
-                            </div>
+            <div class="pageHead">
+                <h1><%= day.date %> </h1>
+            </div>
 
-                            <h3>Option 1: </h3>
-                            <h5><%= day.mealOne %></h5>
-                            <%= day.mealOneDesc %>
+            <div class="orderList">
 
-                            <h3>Option 2: </h3>
-                            <h5> <%= day.mealTwo %></h5>
-                            <%= day.mealTwoDesc %>
-
-                            <h3>Option 3: </h3>
-                            <h5> <%= day.mealThree %></h5>
-                            <%= day.mealThreeDesc %>
-                        </li>
-
-                        
-                    <% } %>
-                <% }) %>
-            </ul>
-            <br><br>
-            <form action="/mealOptions/newOrder" method="post">
-                <div class="form-group">
-                    <label for="childId">Choose Child: </label><br>
+            
+                <ul class="list-group">
                     <% children.forEach((child) => { %>
                         <% if(currentUser && (currentUser.id === child.userId)) { %>
-                            <input type="radio" name="childId" value=<%= child.id %>><%= child.firstName%>
+                            <li class="list-group-item"> 
+                                <div class="childName">
+                                    <%= child.firstName %> 
+                                </div>
+
+                                <h3>Option 1: </h3>
+                                <h5><%= day.mealOne %></h5>
+                                <%= day.mealOneDesc %>
+
+                                <h3>Option 2: </h3>
+                                <h5> <%= day.mealTwo %></h5>
+                                <%= day.mealTwoDesc %>
+
+                                <h3>Option 3: </h3>
+                                <h5> <%= day.mealThree %></h5>
+                                <%= day.mealThreeDesc %>
+                            </li>
+
+                            
                         <% } %>
                     <% }) %>
-                </div>
+                </ul>
+            </div>
+            <br><br>
 
-                <div class="form-group">
-                    <label for="mealOrdered">Meal Choice: </label><br>
-                    <input type="radio" name="mealOrdered" value="1"><%= day.mealOne %><br>
-                    <input type="radio" name="mealOrdered" value="2"><%= day.mealTwo %><br>
-                    <input type="radio" name="mealOrdered" value="3"><%= day.mealThree %><br>
-                </div>
+            <div class= "orderSection">
 
-                <div class="form-group">
-                    <label for="dayId">Delivery Date: </label>
-                    <input type="hidden" name="dayId" value=<%= day.id%>>
-                    <%= day.date %>
-                </div>
+                <form action="/mealOptions/newOrder" method="post">
+                    <div class="form-group">
+                        <label for="childId">Choose Child: </label><br>
+                        <% children.forEach((child) => { %>
+                            <% if(currentUser && (currentUser.id === child.userId)) { %>
+                                <input type="radio" name="childId" value=<%= child.id %>><%= child.firstName%>
+                            <% } %>
+                            <br>
+                        <% }) %>
+                    </div>
 
-                <div class="form-group">
-                    <input type="hidden" name="userId" value=<%= currentUser.id %>>
-                </div>
+                    <div class="form-group">
+                        <label for="mealOrdered">Meal Choice: </label><br>
+                        <input type="radio" name="mealOrdered" value="1"><%= day.mealOne %><br>
+                        <input type="radio" name="mealOrdered" value="2"><%= day.mealTwo %><br>
+                        <input type="radio" name="mealOrdered" value="3"><%= day.mealThree %><br>
+                    </div>
 
-                <button type="submit" class="btn btn-primary">Order Meal</button>
+                    <div class="form-group">
+                        <label for="dayId">Delivery Date: </label>
+                        <input type="hidden" name="dayId" value=<%= day.id%>>
+                        <%= day.date %>
+                    </div>
 
-                    
-            </form>
-            
+                    <div class="form-group">
+                        <input type="hidden" name="userId" value=<%= currentUser.id %>>
+                    </div>
+
+                    <button type="submit" class="btn confirm-button">Order Meal</button>
+  
+                </form>
+            </div>
         </main>
         
     </body>

@@ -8,11 +8,11 @@
         <% include ../static/partials/sideBar.ejs %>
 
         <main class="container">
-            <div class="heading">
+            <div class="pageHead">
                 <h1>New Message</h1>
             </div>
             
-            <div class="newEmailHeader">
+            <div class="newEmail">
 
             <form action="/emails/create" method="post">
                 <div class="newEmailHeader"></div>
@@ -41,7 +41,7 @@
                 </div>
                 
 
-                <button type="submit" class="btn btn-primary" id="sendEmail">Send</button>
+                <button type="submit" class="btn confirm-button" id="sendEmail">Send</button>
             </form>
 
         </main>

@@ -28,10 +28,16 @@
                     <tr>
                             <% days.forEach((day) => { %>
                         <td>
-                            <a href= "/calendar/day/<%= day.id %>"><%= day.id %></a><br>
-                            <%= day.mealOne %><br>
-                            <%= day.mealTwo %><br>
-                            <%= day.mealThree %><br>                
+                            <div class="dayId">
+                                <a href= "/calendar/day/<%= day.id %>"><%= day.id %></a><br>
+                            </div>
+                            
+                                <%= day.mealOne %><br>
+                                <%= day.mealTwo %><br>
+                                <%= day.mealThree %><br>
+                                    
+                            
+                                            
                         </td>
                     
                         <% }) %>

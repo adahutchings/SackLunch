@@ -8,15 +8,15 @@
         <% include ../static/partials/sideBar.ejs %> 
 
         <main class="container">
-            <div class="messageHeader">
+            <div class="pageHead">
                 <h1>Messages</h1>
             </div>
              
             <div class="inboxButtons">
                     <% if(currentUser && currentUser.role === "parent") { %>
-                        <a href="/emails/new" class="btn btn-primary btn-lg">New Message</a>
+                        <a href="/emails/new" class="btn confirm-button">New Message</a>
                         <div class="sentButton">
-                            <a href="/emails/sent" class="btn btn-primary btn-lg">Sent Messages</a>
+                            <a href="/emails/sent" class="btn second-btn">Sent Messages</a>
                         </div>
                         
                     <% } %>
@@ -50,6 +50,10 @@
                             
                         <% }) %>
                     </ul>
+            </div>
+
+            <div class="addDisc">
+                Messages you have recieved from the SackLunch Team appear here. 
             </div>
             
         </main>
