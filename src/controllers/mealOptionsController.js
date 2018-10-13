@@ -30,7 +30,8 @@ module.exports = {
                 mealTwo: req.body.mealTwo,
                 mealTwoDesc: req.body.mealTwoDesc, 
                 mealThree: req.body.mealThree,
-                mealThreeDesc: req.body.mealThreeDesc
+                mealThreeDesc: req.body.mealThreeDesc,
+                weekDay: req.body.weekDay
             };
     
             dayQueries.addMeal(newMeal, (err, day) => {

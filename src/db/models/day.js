@@ -28,6 +28,10 @@ module.exports = (sequelize, DataTypes) => {
     mealThreeDesc: {
       allowNull: false,
       type: DataTypes.STRING
+    },
+    weekDay: {
+      allowNull: false,
+      type: DataTypes.STRING
     }
   }, {});
   Day.associate = function(models) {
