@@ -13,6 +13,9 @@
         <main class="container"> 
             <div class="calendarMonth">
                 <table id="month" style="width:100%">
+                    <colgroup>
+                        <col span="5">
+                    </colgroup>
                     <th colspan="5">October 2018</th>
                     <tr>
                         <th>Monday</th>
@@ -21,230 +24,19 @@
                         <th>Thursday</th>
                         <th>Friday</th>
                     </tr>
-                    <tr id="days">
+                      
+                    <tr>
+                            <% days.forEach((day) => { %>
                         <td>
-                            <a href="/calendar/day/1">1</a>
+                            <a href= "/calendar/day/<%= day.id %>"><%= day.id %></a><br>
+                            <%= day.mealOne %><br>
+                            <%= day.mealTwo %><br>
+                            <%= day.mealThree %><br>                
                         </td>
-                        <td>
-                            <a href="/calendar/day/2">2</a>
-                        </td>
-                        <td>
-                            <a href="/calendar/day/3">3</a>
-                        </td>
-                        <td>
-                            <a href="/calendar/day/4">4</a>
-                        </td>
-                        <td>
-                            <a href="/calendar/day/5">5</a>
-                        </td>
-                            
+                    
+                        <% }) %>
                     </tr>
-                    <tr id="options">
-                        <td>
-                            <% days.findAll({ %>
-                               <% where: { %>
-                                    <% id: 1 %>
-                                <% } %>
-                                <%= mealOne %>
-                            <% }) %>
-                            option 2 <br>
-                            option 3 <br>
-                        </td>
-                        <td>
-                            option 1<br>
-                            option 2<br>
-                            option 3<br>
-                        </td>
-                        <td>
-                            option 1<br>
-                            option 2<br>
-                            option 3<br>
-                        </td>
-                        <td>
-                            option 1<br>
-                            option 2<br>
-                            option 3<br>
-                        </td>
-                        <td>
-                            option 1<br>
-                            option 2<br>
-                            option 3<br>
-                        </td>
-
-                    </tr>
-                    <tr id="days">
-                        <td>
-                            <a href="/calendar/day/8">8</a>
-                        </td>
-                        <td>
-                            <a href="/calendar/day/9">9</a>
-                        </td>
-                        <td>
-                            <a href="/calendar/day/10">10</a>
-                        </td>
-                        <td>
-                            <a href="/calendar/day/11">11</a>
-                        </td>
-                        <td>
-                            <a href="/calendar/day/12">12</a>
-                        </td>
-                    </tr>
-                    <tr id="options">
-                        <td>
-                            option 1 <br>
-                            option 2 <br>
-                            option 3 <br>
-                        </td>
-                        <td>
-                            option 1<br>
-                            option 2<br>
-                            option 3<br>
-                        </td>
-                        <td>
-                            option 1<br>
-                            option 2<br>
-                            option 3<br>
-                        </td>
-                        <td>
-                            option 1<br>
-                            option 2<br>
-                            option 3<br>
-                        </td>
-                        <td>
-                            option 1<br>
-                            option 2<br>
-                            option 3<br>
-                        </td>
-
-                    </tr>
-                    <tr id="days">
-                        <td>
-                            <a href="/calendar/day/15">15</a>
-                        </td>
-                        <td>
-                            <a href="/calendar/day/16">16</a>
-                        </td>
-                        <td>
-                            <a href="/calendar/day/17">17</a>
-                        </td>
-                        <td>
-                            <a href="/calendar/day/18">18</a>
-                        </td>
-                        <td>
-                            <a href="/calendar/day/19">19</a>
-                        </td>
-                    </tr>
-                    <tr id="options">
-                        <td>
-                            option 1 <br>
-                            option 2 <br>
-                            option 3 <br>
-                        </td>
-                        <td>
-                            option 1 <br>
-                            option 2 <br>
-                            option 3 <br>
-                        </td>
-                        <td>
-                            option 1 <br>
-                            option 2<br>
-                            option 3<br>
-                        </td>
-                        <td>
-                            option 1<br>
-                            option 2<br>
-                            option 3<br>
-                        </td>
-                        <td>
-                            option 1<br>
-                            option 2<br>
-                            option 3<br>
-                        </td>
-
-                    </tr>
-                    <tr id="days">
-                        <td>
-                            <a href="/calendar/day/22">22</a>
-                        </td>
-                        <td>
-                            <a href="/calendar/day/23">23</a>
-                        </td>
-                        <td>
-                            <a href="/calendar/day/24">24</a>
-                        </td>
-                        <td>
-                            <a href="/calendar/day/25">25</a>
-                        </td>
-                        <td>
-                            <a href="/calendar/day/26">26</a>
-                        </td>  
-                    </tr>
-                    <tr id="options">
-                        <td>
-                            option 1 <br>
-                            option 2 <br>
-                            option 3 <br>
-                        </td>
-                        <td>
-                            option 1 <br>
-                            option 2 <br>
-                            option 3 <br>
-                        </td>
-                        <td>
-                            option 1 <br>
-                            option 2 <br>
-                            option 3 <br>
-                        </td>
-                        <td>
-                            option 1 <br>
-                            option 2 <br>
-                            option 3 <br>
-                        </td>
-                        <td>
-                            option 1 <br>
-                            option 2 <br>
-                            option 3 <br>
-                        </td>
-
-                    </tr>
-                    <tr id="days">
-                        <td>
-                            <a href="/calendar/day/29">29</a>
-                        </td>
-                        <td>
-                            <a href="/calendar/day/30">30</a>
-                        </td>
-                        <td>
-                            <a href="/calendar/day/31">31</a>
-                        </td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-                    <tr id="options">
-                        <td>
-                            option 1 <br>
-                            option 2 <br>
-                            option 3 <br>
-                        </td>
-                        <td>
-                            option 1 <br>
-                            option 2 <br>
-                            option 3 <br>
-                        </td>
-                        <td>
-                            option 1 <br>
-                            option 2 <br>
-                            option 3 <br>
-                        </td>
-                        <td>
-                            
-                        </td>
-                        <td>
-                            
-                        </td>
-
-                    </tr>
-                  </table>
+                </table>
             </div>
         </main>
         
