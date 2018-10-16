@@ -4,13 +4,10 @@ module.exports = (sequelize, DataTypes) => {
     date: {
       allowNull: false,
       type: DataTypes.STRING,
-<<<<<<< HEAD
-=======
     },
     dayNumber: {
       allowNull: false,
       type: DataTypes.INTEGER
->>>>>>> calenderTest
     },
     mealOne: {
       allowNull: false,

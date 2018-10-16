@@ -11,13 +11,10 @@ module.exports = {
       date: {
         allowNull: false,
         type: Sequelize.STRING
-<<<<<<< HEAD
-=======
       },
       dayNumber: {
         allowNull: false,
         type: Sequelize.INTEGER
->>>>>>> calenderTest
       },
       mealOne: {
         allowNull: false,
