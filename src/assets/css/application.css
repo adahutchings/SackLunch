@@ -221,6 +221,10 @@ a {
     color: black;
 }
 
+a:hover {
+    color: black;
+}
+
 .confirm-button {
     background-color: pink;
     margin: 5px;
