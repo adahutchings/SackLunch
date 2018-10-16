@@ -217,6 +217,10 @@ a:visited {
     color: black;
 }
 
+a {
+    color: black;
+}
+
 .confirm-button {
     background-color: pink;
     margin: 5px;

@@ -10,6 +10,7 @@ module.exports = {
 
         if(authorized){
             dayQueries.getAllDays((err, days) => {
+                console.log(err);
                 res.render("calendar/month", {days});
             });
         } else {
