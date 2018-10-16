@@ -31,7 +31,8 @@ module.exports = {
                 mealTwoDesc: req.body.mealTwoDesc, 
                 mealThree: req.body.mealThree,
                 mealThreeDesc: req.body.mealThreeDesc,
-                weekDay: req.body.weekDay
+                weekDay: req.body.weekDay,
+                dayNumber: req.body.dayNumber
             };
     
             dayQueries.addMeal(newMeal, (err, day) => {
@@ -59,7 +60,8 @@ module.exports = {
                 mealOrdered: req.body.mealOrdered,
                 userId: req.body.userId,
                 childId: req.body.childId,
-                dayId: req.body.dayId
+                dayId: req.body.dayId,
+
             };
     
             mealOrderQueries.addOrder(newOrder, (err, mealOrder) => {

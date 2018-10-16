@@ -10,6 +10,10 @@ module.exports = {
       },
       date: {
         allowNull: false,
+        type: Sequelize.STRING
+      },
+      dayNumber: {
+        allowNull: false,
         type: Sequelize.INTEGER
       },
       mealOne: {
