@@ -11,6 +11,13 @@ module.exports = {
       date: {
         allowNull: false,
         type: Sequelize.STRING
+<<<<<<< HEAD
+=======
+      },
+      dayNumber: {
+        allowNull: false,
+        type: Sequelize.INTEGER
+>>>>>>> calenderTest
       },
       mealOne: {
         allowNull: false,
@@ -33,6 +40,10 @@ module.exports = {
         type: Sequelize.STRING
       },
       mealThreeDesc: {
+        allowNull: false,
+        type: Sequelize.STRING
+      },
+      weekDay: {
         allowNull: false,
         type: Sequelize.STRING
       },

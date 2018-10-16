@@ -26,22 +26,28 @@
                     </tr>
                       
                     <tr>
-                            <% days.forEach((day) => { %>
-                        <td>
-                            <div class="dayId">
-                                <a href= "/calendar/day/<%= day.id %>"><%= day.id %></a><br>
-                            </div>
+                        <% days.forEach((day) => { %>
+                            <% if(day.weekDay === 'Monday') { %> 
                             
-                                <%= day.mealOne %><br>
-                                <%= day.mealTwo %><br>
-                                <%= day.mealThree %><br>
-                                    
-                            
-                                            
-                        </td>
+                            <tr>
+                            <% } %>
+
+                                <td>
+                                        <div class="dayId">
+                                            <a href= "/calendar/day/<%= day.id %>"><%= day.dayNumber %></a><br>
+                                        </div>
+                                        
+                                            <%= day.mealOne %><br>
+                                            <%= day.mealTwo %><br>
+                                            <%= day.mealThree %><br>
+                                </td>
+                            <% if(day.id === 'Monday') { %>
+
+                            </tr>
+                            <% } %>
                     
                         <% }) %>
-                    </tr>
+                    
                 </table>
             </div>
         </main>
