@@ -109,11 +109,9 @@ main.container {
     margin: 5% 35% 18% 35%;
     padding: 25px;
     text-align: center;
-    border: 3px solid black;
-    border-radius: 10px;
     display: inline-flex;
-    background-color: grey;
-    
+    background-color: lightgrey;
+    box-shadow: 3px 3px 3px grey;
 }
 
 .signIn{
@@ -127,7 +125,7 @@ main.container {
     margin: 40px 180px 30px 180px;
     padding: 20px;
     box-shadow: 5px 5px 5px grey;
-    background-color: grey;
+    background-color: lightgrey;
 }
 
 .signUp {
