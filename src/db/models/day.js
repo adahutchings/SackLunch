@@ -3,7 +3,7 @@ module.exports = (sequelize, DataTypes) => {
   var Day = sequelize.define('Day', {
     date: {
       allowNull: false,
-      type: DataTypes.INTEGER,
+      type: DataTypes.STRING,
     },
     mealOne: {
       allowNull: false,
